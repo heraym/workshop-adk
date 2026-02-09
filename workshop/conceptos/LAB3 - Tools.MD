@@ -78,3 +78,6 @@ Ademas, incluye el import de la tool al comienzo del programa
 `from google.adk.tools import google_search `
 
 Prueba ahora con otras opciones de ciudades y verifica que busca en Google.
+
+
+
