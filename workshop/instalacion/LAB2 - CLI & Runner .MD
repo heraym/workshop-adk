@@ -33,8 +33,10 @@ El comando adk run es una parte indispensable del flujo de trabajo de desarrollo
 Esta es la forma más potente de ejecutar a su agente. Al utilizar la clase Runner en su propio script de Python, puede integrar las capacidades de su agente en cualquier servicio backend, script automatizado o aplicación más grande. Obtiene un control total sobre la interacción.
 
 Crear el Script del Runner
-Dentro de su directorio my_first_agent, cree un nuevo archivo llamado run_programmatically.py.
+Dentro de su directorio mi_primer_agente, cree un nuevo archivo llamado run_programmatically.py.
 Abra este nuevo archivo en su editor de código y agregue el siguiente código:
+
+```
 import asyncio
 # Importe el agente que definió en main.py
 from agent import root_agent
@@ -42,13 +44,17 @@ from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.genai.types import Content, Part
 from dotenv import load_dotenv
+
 # Cargue las variables de entorno desde el archivo .env
 load_dotenv()
+
 # Un nombre único para su aplicación.
-APP_NAME = "my_first_app"
+APP_NAME = "mi_primer_app"
+
 # IDs únicos para el usuario y la sesión de conversación.
 USER_ID = "user_12345"
 SESSION_ID = "session_67890"
+
 async def main():
     """La función principal para ejecutar el agente de forma programática."""
     # 1. El Runner es el punto de entrada principal para ejecutar un agente.
@@ -72,7 +78,8 @@ async def main():
     async for event in runner.run_async(
         user_id=USER_ID, session_id=SESSION_ID, new_message=user_message
     ):
-        # 5. Buscamos el evento "final response" para obtener la salida del agente.
+
+    # 5. Buscamos el evento "final response" para obtener la salida del agente.
         if event.is_final_response() and event.content:
             final_response = event.content.parts[0].text.strip()
             print(final_response)
@@ -80,17 +87,16 @@ async def main():
 # Ejecutar la función principal asíncrona.
 if __name__ == "__main__":
     asyncio.run(main())
-Entender el Código
-Desglosemos los conceptos clave del script:
-Runner: Esta es la clase central para ejecutar un agente. Orquesta todo el proceso: recibe el mensaje del usuario, lo pasa al agente, maneja las llamadas al LLM y gestiona el historial de la sesión.
-SessionService: Las conversaciones deben almacenarse en algún lugar. InMemorySessionService es una implementación sencilla que almacena el historial en la memoria. Para producción, usaría un servicio persistente como VertexAiSessionService.
-create_session: Antes de poder tener una conversación, necesita un lugar donde guardarla. Este método crea un nuevo hilo de conversación, identificado por un session_id único.
-Content y Part: Esta es la estructura estandarizada que ADK utiliza para todos los mensajes, garantizando la compatibilidad con diferentes modelos y herramientas.
-runner.run_async y Events: El método run_async no solo devuelve una cadena. Devuelve un flujo asíncrono de objetos Event. Estos eventos representan cada paso en el proceso de pensamiento del agente: llamadas a herramientas, respuestas de texto parciales (streaming) y la respuesta final. Al iterar a través de los eventos y verificar event.is_final_response(), capturamos de forma fiable la salida final completa destinada al usuario.
-Ejecutar el Script
-De vuelta en su terminal (en el directorio my_first_agent), ejecute su nuevo script de Python.
-python run_programmatically.py
+```
+
+
+*** Ejecutar el Script ***
+De vuelta en su terminal (en el directorio mi_primer_agente), ejecute su nuevo script de Python.
+
+`python run_programmatically.py`
+
 Verá la salida impresa directamente en su consola.
+```
 Creando sesión: session_67890
 Mensaje del usuario: 'Escribe un haiku sobre APIs.'
 
@@ -99,5 +105,6 @@ Los datos fluyen,
 Conectando mundos hoy,
 Sutil enlace.
 --- Fin de la Respuesta ---
+```
 ¡Acaba de controlar con éxito a su agente de IA totalmente desde su propio código!
  

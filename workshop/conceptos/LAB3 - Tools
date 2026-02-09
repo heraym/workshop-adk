@@ -1,0 +1,80 @@
+# H1 Usar tools en Agentes
+
+En este caso vamos a usar un concepto clave en los agentes que son las herramientas o tools
+Las herramientas son funciones de programación con entrada y salida estructuradas que un Agente ADK puede llamar para realizar acciones. 
+Se pueden realizar diversas acciones y funciones de programación con una Herramienta ADK, tales como:
+* Consultar bases de datos
+* Realizar solicitudes de API: obtener datos meteorológicos, sistemas de reserva
+* Buscar en la web
+* Ejecutar fragmentos de código
+* Recuperar información de documentos (RAG)
+* Interactuar con otros software o servicios
+
+## H2 1. Configura una tool personalizada
+En el directorio del workshop vamos a crear un agente mis_tools
+
+`adk create --type=code mis_tools`
+
+Y vamos a editar el archivo agent.py.
+
+```
+def get_weather(query: str) -> str:
+    """Simulates a web search. Use it get information on weather.
+
+    Args:
+        query: A string containing the location to get weather information for.
+
+    Returns:
+        A string with the simulated weather information for the queried location.
+    """
+    if "ba" in query.lower() or "buenos aires" in query.lower():
+        return "Hacen 30 grados y esta soleado."
+    return "Hace frio y muy nublado."
+
+
+root_agent = Agent(
+        name="WeatherAgent",
+        model="gemini-2.5-flash",
+        instruction="Sos un asistente que responde sobre el clima en algunas ciudades de Argentina.",
+        description="An LLM agent.",
+        tools=[get_weather]
+) 
+```
+
+## H2 2. Ejecuta e interactúa con tu agente
+
+En tu terminal, navega hacia el directorio de tu agente recién creado.
+` cd mis_tools`
+
+Ejecuta la interfaz web integrada de ADK.
+` adk web `
+
+Tu terminal mostrará una salida indicando que un servidor local se está ejecutando, generalmente en http://127.0.0.1:8080.
+
+```
+INFO:     Started server process [12345]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8080 (Press CTRL+C to quit)
+
+```
+Abre esta URL en tu navegador web. Verás la misma interfaz de chat limpia y sencilla que antes.
+¡Empieza a chatear! Prueba los mismos comandos para ver a tu agente Python en acción:
+
+¡Hola! ¿Como esta el clima en Buenos Aires?
+y en Cordoba?
+
+El agente decidira usar la tool weather y contestar en base a ese codigo.
+
+## H2 3. Usar tool preconstruida
+
+Ahora vamos a usar la tool ya provista de Google Search para que busque el clima en la ciudad que uno pide haciendo una busqueda en Google.
+
+Abre el archivo agent.py y modifica la opcion de tools con 
+  ` tools=[google_search] `
+
+Ademas, incluye el import de la tool al comienzo del programa
+
+`from google.adk.tools import google_search `
+
+Prueba ahora con otras opciones de ciudades y verifica que busca en Google.
