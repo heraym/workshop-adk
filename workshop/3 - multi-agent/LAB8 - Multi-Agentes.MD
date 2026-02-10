@@ -859,12 +859,12 @@ Cada nivel tiene un alcance apropiado y delega los detalles a los subordinados.
 
 Este patrón integra la toma de decisiones y la supervisión humana en flujos de trabajo automatizados, perfecto para la creación de contenido, procesos de aprobación y garantía de calidad.
 
-### **Crea el Patrón Humano en el Bucle**
+**Crea el Patrón Humano en el Bucle**
 
 Crea `human_loop_pattern/agent.py` con el siguiente código:
 
 ``` python
-from google.adk.agents import SequentialAgent, LlmAgent
+from google.adk.agents import SequentialAgent, Agent
 
 from google.adk.tools.tool_context import ToolContext
 
@@ -884,11 +884,11 @@ load_dotenv()
 
 # The author agent - writes first draft
 
-author = LlmAgent(
+author = Agent(
 
     name="ManuscriptWriter",
 
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
 
     description="Creates initial content drafts for review.",
 
@@ -906,11 +906,11 @@ author = LlmAgent(
 
 # The revision agent - improves based on human feedback
 
-reviser = LlmAgent(
+reviser = Agent(
 
     name="ManuscriptReviser",
 
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
 
     description="Revises content based on human feedback.",
 
@@ -998,11 +998,11 @@ def request_human_review(draft: str, tool_context: ToolContext) -> str:
 
 # This agent manages the human review process
 
-reviewer = LlmAgent(
+reviewer = Agent(
 
     name="EditorialReviewer",
 
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
 
     description="Manages human review process for content quality assurance.",
 
@@ -1048,7 +1048,7 @@ root_agent = SequentialAgent(
 
 ```
 
-### **Comprendiendo la Integración Humana**
+**Comprendiendo la Integración Humana**
 
 Este patrón demuestra la colaboración humano-IA:
 
@@ -1063,31 +1063,10 @@ En sistemas de producción, la revisión humana se integraría con:
   * Interfaces de revisión basadas en web.
   * Procesos de garantía de calidad.
 
-## **9. Probando tus Patrones Multi-Agente**
-
-### **Ejecuta Patrones Individuales**
-
-Para probar cada patrón, ejecutarás `adk web` desde el directorio principal y luego seleccionarás el agente de patrón específico en la interfaz web:
-
-\# Desde el directorio principal `adk-multiagent-lab`
-
-``` 
-adk web
-
-```
-
-Luego, en tu navegador en `http://127.0.0.1:8080`, verás un menú desplegable para seleccionar entre:
-
-  * `sequential_pattern.CodePipelineAgent`
-  * `parallel_pattern.ParallelWebResearchAgent`
-  * `loop_pattern.ContentRefinementSystem`
-  * `coordinator_pattern.HelpDeskCoordinator`
-  * `hierarchical_pattern.ProjectManager`
-  * `human_loop_pattern.BookPublishingFlow`
 
 IMPORTANTE: Prueba el agente Human-in-the-loop usando el comando `adk run <ruta_a_la_carpeta_padre>` en su lugar.
 
-### **Ejemplos de Prompts para Cada Patrón**
+## H2 9. Ejemplos de Prompts para Cada Patrón
 
 Agente Secuencial:
 
@@ -1114,28 +1093,28 @@ Agente Humano en el Bucle:
 
   * "Escribe el capítulo inicial de una novela de ciencia ficción sobre exploración espacial"
 
-## **10. Mejores Prácticas para Sistemas Multi-Agente**
+## H2 10. Mejores Prácticas para Sistemas Multi-Agente
 
-### **Principios de Diseño**
+**Principios de Diseño**
 
   * Responsabilidad Única: Cada agente debe tener un propósito claro.
   * Comunicación Clara: Usa valores `output_key` descriptivos para compartir el estado.
   * Manejo de Errores: Incluye mecanismos de respaldo para fallos del agente.
   * Gestión de Recursos: Considera los costos computacionales de las operaciones paralelas.
 
-### **Gestión de Estado**
+**Gestión de Estado**
 
   * Nomenclatura Consistente: Usa claves de estado descriptivas como `circuit_design` y no `output1`.
   * Flujo de Estado: Diseña un flujo de datos claro entre agentes.
   * Limpieza de Estado: Considera cuándo limpiar el estado intermedio.
 
-### **Optimización del Rendimiento**
+**Optimización del Rendimiento**
 
   * Paralelizar Siempre que sea Posible: Usa agentes paralelos para tareas independientes.
   * Secuenciar Cuando sea Necesario: Usa agentes secuenciales para tareas dependientes.
   * Gestión de Tiempos de Espera: Establece tiempos de espera apropiados para agentes de larga ejecución.
   * Agrupación de Recursos: Comparte recursos costosos (como herramientas de búsqueda) entre agentes.
 
-## **11. ¡Felicidades\!**
+## H2 11. ¡Felicidades\!
 
 ¡Has dominado con éxito los patrones multi-agente fundamentales en ADK\!
