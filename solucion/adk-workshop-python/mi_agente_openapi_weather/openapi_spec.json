@@ -1,0 +1,59 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Open API Weather(Mock)",
+    "version": "1.0.1",
+    "description": "An API to manage pets in a store, using httpbin for responses."
+  },
+  "servers": [
+    {
+      "url": "https://api.openweathermap.org/data/3.0",
+      "description": "Open Weather API"
+    }
+  ],
+  "paths": {
+    "/onecall": {
+      "get": {
+        "summary": "Get Current Conditions",
+        "operationId": "currentConditions",
+        "description": "Get access to current weather, minute forecast for 1 hour, hourly forecast for 48 hours, daily forecast for 8 days and government weather alerts.",
+        "parameters": [
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "Latitude",
+            "required": true,
+            "schema": { "type": "decimal" }
+          },
+          {
+            "name": "lon",
+            "in": "query",
+            "description": "Longitude",
+            "required": true,
+            "schema": { "type": "decimal" }
+          },
+          {
+             "name": "exclude",
+             "in": "query",
+             "description": "By using this parameter you can exclude some parts of the weather data from the API response. It should be a comma-delimited list (without spaces). Available values: current, minutely, hourly, daily, alerts",
+             "required": false,
+             "schema": { "type": "string", "enum": ["current", "minutely", "hourly", "daily", "alerts"] }
+          },
+          {
+             "name": "appid",
+             "in": "query",
+             "description": "Your unique API key",
+             "required": true,
+             "schema": { "type": "string"}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Information about weather",
+            "content": { "application/json": { "schema": { "type": "object" } } }
+          }
+        }
+      }
+    }    
+  }
+}
