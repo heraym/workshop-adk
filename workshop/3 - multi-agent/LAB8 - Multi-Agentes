@@ -1,0 +1,1141 @@
+## H1 Construyendo Sistemas Multi-Agente con Patrones de Diseño de ADK 
+
+¡Has aprendido a construir agentes individuales con herramientas e integraciones. Ahora, descubrirás el poder de los sistemas multi-agente: orquestar múltiples agentes especializados para resolver problemas complejos que requieren coordinación, procesamiento paralelo y flujos de trabajo sofisticados.
+
+Los sistemas multi-agente representan la próxima evolución en las aplicaciones de IA. En lugar de construir un único agente monolítico que intenta hacerlo todo, aprenderás a crear equipos de agentes enfocados que colaboren, cada uno aportando su propia experiencia a la mesa. Este enfoque modular conduce a soluciones de IA más confiables, mantenibles y escalables.
+
+
+Sumerjámonos en el mundo de los agentes de IA colaborativos.
+
+## H2 1. Configura tu Laboratorio Multi-Agente
+
+Vamos a crear un entorno integral para experimentar con diferentes patrones multi-agente.
+
+  Abre tu terminal y crea un nuevo directorio para este laboratorio:
+
+``` 
+mkdir mi_primer_multiagente 
+
+```
+
+`cd mi_primer_multiagente`
+
+Crea un entorno virtual de Python. Esta es una práctica recomendada crucial para gestionar las dependencias del proyecto.
+
+`python3 -m venv .venv`
+
+Activa el entorno virtual. Deberás hacer esto cada vez que trabajes en este proyecto en una nueva sesión de terminal.
+
+
+macOS / Linux:
+`source .venv/bin/activate`
+
+Windows:
+`.venv\Scripts\activate`
+
+Sabrás que está activo cuando veas (.venv) al principio del indicador de tu terminal.
+
+Con tu entorno virtual activo, instala la librería google-adk usando pip.
+
+`pip install google-adk`
+
+Verifica la instalación comprobando la versión de ADK.
+
+`adk --version`
+
+Deberías ver una salida que indique el número de versión instalado.
+
+``` 
+mkdir sequential_pattern
+
+```
+
+``` 
+mkdir parallel_pattern
+
+```
+
+``` 
+mkdir loop_pattern
+
+```
+
+``` 
+mkdir coordinator_pattern
+
+```
+
+``` 
+mkdir hierarchical_pattern
+
+```
+
+``` 
+mkdir human_loop_pattern
+
+```
+
+``` 
+touch sequential_pattern/__init__.py
+
+```
+
+``` 
+touch parallel_pattern/__init__.py
+
+```
+
+``` 
+touch loop_pattern/__init__.py
+
+```
+
+``` 
+touch coordinator_pattern/__init__.py
+
+```
+
+``` 
+touch hierarchical_pattern/__init__.py
+
+```
+
+``` 
+touch human_loop_pattern/__init__.py
+
+```
+
+`touch .env`
+
+Agrega la importación requerida a cada archivo `__init__.py`:
+
+# Para cada directorio de patrón: `nombre_patron/__init__.py`
+
+  `from . import agent`
+  Configura tus variables de entorno en `.env`:
+
+
+
+### H2 2. Comprendiendo los Patrones de Arquitectura Multi-Agente
+
+Antes de implementar patrones específicos, comprendamos los conceptos fundamentales que hacen que los sistemas multi-agente sean potentes:
+
+**Conceptos Clave**
+
+  * Especialización del Agente: Cada agente tiene un rol y experiencia enfocados.
+  * Coordinación: Los agentes trabajan juntos hacia objetivos comunes.
+  * Comunicación: Los agentes comparten información y resultados.
+  * Gestión de Estado: Mantener el contexto a través de las interacciones del agente.
+  * Control de Flujo: Determinar el orden de ejecución y las condiciones.
+
+**Cuándo usar Patrones Multi-Agente**
+
+  * Flujos de Trabajo Complejos: Descomponer tareas grandes en pasos manejables.
+  * Procesamiento Paralelo: Manejar múltiples tareas independientes simultáneamente.
+  * Garantía de Calidad: Hacer que los agentes revisen y refinen el trabajo de los demás.
+  * Experiencia en Dominio: Enrutar solicitudes a agentes de conocimiento especializados.
+  * Escalabilidad: Distribuir la carga de trabajo a través de múltiples unidades de procesamiento.
+
+## H2 3. Patrón 1: Agente Secuencial para Flujos de Trabajo Paso a Paso
+
+Los agentes secuenciales ejecutan tareas en un orden específico, y cada agente se basa en la salida del agente anterior. Este patrón es perfecto para flujos de trabajo como pipelines de desarrollo de código.
+
+**Crea el Patrón Secuencial**
+
+Crea `sequential_pattern/agent.py` con el siguiente código:
+
+``` python
+from google.adk.agents import Agent, SequentialAgent
+
+from dotenv import load_dotenv  
+
+# Load environment variables
+
+load_dotenv()
+
+
+# Define individual specialist agents
+
+code_writer_agent = Agent(
+
+    name="CodeWriter",
+
+    model="gemini-2.5-flash",
+
+    description="Writes initial code based on requirements.",
+
+    instruction="""You are an expert software developer. When given requirements,
+
+    write clean, well-structured code. Focus on functionality and clarity.
+
+    Always include basic error handling and comments.""",
+
+    output_key="initial_code"
+
+)
+
+  
+
+code_reviewer_agent = Agent(
+
+    name="CodeReviewer",
+
+    model="gemini-2.5-flash",
+
+    description="Reviews code for quality, bugs, and best practices.",
+
+    instruction="""You are a senior code reviewer. Review the following code: '{initial_code}'
+
+
+    Check for:
+
+    - Code quality and readability
+
+    - Potential bugs or issues
+
+    - Adherence to best practices
+
+    - Security considerations
+
+  
+
+    Provide specific feedback and suggestions for improvement.""",
+
+    output_key="review_feedback"
+
+)
+
+  
+
+code_refactorer_agent = Agent(
+
+    name="CodeRefactorer",
+
+    model="gemini-2.5-flash",
+
+    description="Refactors code based on review feedback.",
+
+    instruction="""You are a refactoring expert. Take the original code: '{initial_code}'
+
+    and the review feedback: '{review_feedback}' to produce improved code.
+
+  
+
+    Apply the suggested improvements while maintaining functionality.
+
+    Make the code more maintainable, efficient, and robust.""",
+
+    output_key="refactored_code"
+
+)
+
+
+
+# Create the sequential pipeline
+
+root_agent = SequentialAgent(
+
+    name="CodePipelineAgent",
+
+    sub_agents=[code_writer_agent, code_reviewer_agent, code_refactorer_agent],
+
+    description="Executes a sequence of code writing, reviewing, and refactoring.",
+
+    # The agents will run in the order provided: Writer -> Reviewer -> Refactorer
+
+)
+
+```
+
+**Comprendiendo el Flujo Secuencial**
+
+En este patrón:
+
+1.  El Escritor de Código crea el código inicial y lo guarda en `state['initial_code']`.
+2.  El Revisor de Código lee el código inicial y proporciona retroalimentación en `state['review_feedback']`.
+3.  El Refactorizador de Código lee tanto el código como la retroalimentación para producir el resultado final.
+
+El parámetro `output_key` asegura que la salida de cada agente se guarde en el estado de la sesión y esté disponible para los agentes subsiguientes a través de variables de plantilla como `{initial_code}`.
+
+## H2 4. Patrón 2: Agente Paralelo para Procesamiento Concurrente
+
+Los agentes paralelos ejecutan múltiples tareas simultáneamente, perfectos para investigación, recopilación de datos, o cualquier escenario donde tareas independientes puedan procesarse concurrentemente.
+
+**Crea el Patrón Paralelo**
+
+Crea `parallel_pattern/agent.py` con el siguiente código:
+
+``` python
+from google.adk.agents import Agent, ParallelAgent
+
+from google.adk.tools import google_search
+
+from dotenv import load_dotenv
+
+  
+
+# Load environment variables
+
+load_dotenv()
+
+  
+
+# Define parallel research agents
+
+researcher_agent_1 = Agent(
+
+    name="TechResearcher",
+
+    model="gemini-2.5-flash",
+
+    description="Researches technology trends and innovations.",
+
+    instruction="""You are a technology research specialist. When given a topic,
+
+    research the latest technological developments, innovations, and trends.
+
+    Focus on cutting-edge technologies and their implications.""",
+
+    tools=[google_search],
+
+    output_key="tech_research"
+
+)
+
+  
+
+researcher_agent_2 = Agent(
+
+    name="MarketResearcher",
+
+    model="gemini-2.5-flash",
+
+    description="Researches market trends and business implications.",
+
+    instruction="""You are a market research analyst. When given a topic,
+
+    research market trends, business opportunities, and economic impacts.
+
+    Focus on market size, growth potential, and competitive landscape.""",
+
+    tools=[google_search],
+
+    output_key="market_research"
+
+)
+
+  
+
+researcher_agent_3 = Agent(
+
+    name="AcademicResearcher",
+
+    model="gemini-2.5-flash",
+
+    description="Researches academic literature and scientific developments.",
+
+    instruction="""You are an academic researcher. When given a topic,
+
+    research recent academic papers, scientific studies, and scholarly insights.
+
+    Focus on peer-reviewed research and evidence-based findings.""",
+
+    tools=[google_search],
+
+    output_key="academic_research"
+
+)
+
+  
+
+# Create the parallel research agent
+
+root_agent = ParallelAgent(
+
+    name="ParallelWebResearchAgent",
+
+    sub_agents=[researcher_agent_1, researcher_agent_2, researcher_agent_3],
+
+    description="Runs multiple research agents in parallel to gather comprehensive information.",
+
+    # The agents will run simultaneously and independently
+
+)
+
+```
+
+**Comprendiendo la Ejecución Paralela**
+
+En este patrón:
+
+  * Los tres agentes de investigación se ejecutan simultáneamente.
+  * Cada agente se enfoca en un ángulo de investigación diferente.
+  * Los resultados se recopilan de todos los agentes: `tech_research`, `market_research`, `academic_research`.
+  * El tiempo total de ejecución está determinado por el agente más lento, no por la suma de todos los agentes.
+
+## H2 5. Patrón 3: Agente de Bucle para Refinamiento Iterativo
+
+Los agentes de bucle implementan flujos de trabajo iterativos donde los agentes refinan repetidamente su trabajo basándose en la retroalimentación. Este patrón es excelente para la mejora de la calidad y la reflexión.
+
+**Crea el Patrón de Bucle**
+
+Crea `loop_pattern/agent.py` con el siguiente código:
+
+``` python
+from google.adk.agents import Agent, LoopAgent, SequentialAgent
+
+from dotenv import load_dotenv
+
+  
+# Load environment variables
+
+load_dotenv()
+
+  
+
+# Define the critic agent that evaluates work
+
+critic_agent_in_loop = Agent(
+
+    name="QualityCritic",
+
+    model="gemini-2.5-flash",
+
+    description="Evaluates content quality and provides improvement suggestions.",
+
+    instruction="""You are a quality critic. Evaluate the current work: '{current_output}'
+
+  
+
+    Assess:
+
+    - Clarity and coherence
+
+    - Completeness and accuracy
+
+    - Areas for improvement
+
+  
+
+    If the work meets high standards, respond with "APPROVED: [brief praise]"
+
+    If it needs improvement, provide specific, actionable feedback.""",
+
+    output_key="critique_feedback"
+
+)
+
+  
+
+# Define the refiner agent that improves work based on critique
+
+refiner_agent_in_loop = Agent(
+
+    name="ContentRefiner",
+
+    model="gemini-2.5-flash",
+
+    description="Refines and improves content based on critique feedback.",
+
+    instruction="""You are a content refiner. Take the previous work: '{current_output}'
+
+    and the critique: '{critique_feedback}' to create an improved version.
+
+  
+
+    If the critique says "APPROVED", keep the content as-is.
+
+    Otherwise, address all the feedback points and enhance the quality.""",
+
+    output_key="current_output"
+
+)
+
+  
+
+# Create an initial content creator for the loop
+
+initial_writer = Agent(
+
+    name="InitialWriter",
+
+    model="gemini-2.5-flash",
+
+    description="Creates initial content for the refinement loop.",
+
+    instruction="""You are a content creator. Write initial content based on the user's request.
+
+    This will be the starting point for an iterative refinement process.""",
+
+    output_key="current_output"
+
+)
+
+  
+
+# Create the refinement loop
+
+refinement_loop = LoopAgent(
+
+    name="RefinementLoop",
+
+    # Agent order is crucial: Critique first, then Refine/Exit
+
+    sub_agents=[critic_agent_in_loop, refiner_agent_in_loop],
+
+    max_iterations=5,  # Limit loops to prevent infinite execution
+
+    description="Iteratively refines content until it meets quality standards."
+
+)
+
+  
+
+# Create the root agent that combines initial writing with refinement
+
+root_agent = SequentialAgent(
+
+    name="ContentRefinementSystem",
+
+    description="Creates initial content and then refines it iteratively.",
+
+    sub_agents=[initial_writer, refinement_loop]
+
+)
+
+```
+
+**Comprendiendo la Dinámica del Bucle**
+
+El patrón de bucle crea un ciclo de retroalimentación:
+
+1.  El Crítico evalúa la salida actual y proporciona retroalimentación.
+2.  El Refinador mejora el contenido basándose en la retroalimentación.
+3.  El Bucle continúa hasta que se cumplen los estándares de calidad o se alcanza el máximo de iteraciones.
+4.  El parámetro `max_iterations` previene bucles infinitos.
+
+**Cómo funciona la Terminación del Bucle**
+
+El `LoopAgent` detiene la ejecución cuando se cumple cualquiera de las condiciones:
+
+1.  Máximo de Iteraciones Alcanzado: Se alcanza el límite de `max_iterations` (5 iteraciones en este ejemplo).
+2.  Escalada del Agente: Cualquier sub-agente establece `tool_context.actions.escalate = True` en una función de herramienta.
+
+💡 Consejo Pro: Para implementar la terminación basada en contenido, puedes modificar el agente crítico para usar una herramienta que establezca `tool_context.actions.escalate = True` cuando el contenido cumpla con los estándares de calidad. Esto permite una terminación temprana inteligente en lugar de ejecutar siempre el máximo de iteraciones.
+
+Nota: La Reflexión es un patrón de bucle ejecutado solo una vez (`max_iterations=1`).
+
+## H2 6. Patrón 4: Coordinador-Despachador para Enrutamiento Inteligente
+
+Este patrón implementa un sistema de enrutamiento inteligente donde un agente coordinador analiza las solicitudes y las despacha a los agentes especialistas apropiados.
+
+**Crea el Patrón de Coordinador**
+
+Crea `coordinator_pattern/agent.py` con el siguiente código:
+
+``` python
+from google.adk.agents import Agent
+
+from google.adk.tools.tool_context import ToolContext
+
+from dotenv import load_dotenv
+
+
+# Load environment variables
+
+load_dotenv()  
+
+# Define specialist agents
+
+billing_agent = Agent(
+
+    name="billing_agent",
+
+    model="gemini-2.5-flash",
+
+    description="Handles billing inquiries and payment issues.",
+
+    instruction="""You are a billing specialist. Help customers with:
+
+    - Payment processing issues
+
+    - Invoice questions
+
+    - Billing disputes
+
+    - Account balance inquiries
+
+    - Subscription management
+
+  
+
+    Be helpful and provide clear solutions."""
+
+)
+
+  
+
+support_agent = Agent(
+
+    name="support_agent",
+
+    model="gemini-2.5-flash",
+
+    description="Handles technical support requests.",
+
+    instruction="""You are a technical support specialist. Help customers with:
+
+    - Software troubleshooting
+
+    - Configuration issues
+
+    - Performance problems
+
+    - Feature questions
+
+    - Integration support
+
+  
+
+   Ask first about what is the problem in detail and provide step-by-step solutions and ask clarifying questions when needed."""
+
+)
+
+
+def check_and_transfer(query: str, tool_context: ToolContext) -> str:
+
+    """Checks if the query requires escalation and transfers to another agent."""
+
+    # Analyze the query for routing signals
+
+    query_lower = query.lower()
+
+  
+
+    # Check for billing-related keywords
+
+    billing_keywords = ['bill', 'payment', 'invoice', 'charge', 'subscription', 'refund', 'price']
+
+    if any(keyword in query_lower for keyword in billing_keywords):
+
+        print("Tool: Detected billing query, transferring to the billing agent.")
+
+        tool_context.actions.transfer_to_agent = "billing_agent"
+
+        return "Transferring to our billing specialist who can help with payment and account issues..."
+
+  
+
+    # Check for technical keywords
+
+    tech_keywords = ['error', 'bug', 'install', 'configure', 'troubleshoot', 'performance']
+
+    if any(keyword in query_lower for keyword in tech_keywords):
+
+        print("Tool: Detected technical query, transferring to support agent.")
+
+        tool_context.actions.transfer_to_agent = "support_agent"
+
+        return "Transferring to our technical support team for assistance..."
+
+  
+
+    return f"I've analyzed your query: '{query}'. Let me help you directly."
+
+  
+
+# Coordinator agent that routes requests
+
+root_agent = Agent(
+
+    name="HelpDeskCoordinator",
+
+    model="gemini-2.5-flash",
+
+    instruction="""You are a help desk coordinator. Analyze user requests and route them appropriately:
+
+
+    For payment, billing, or financial issues → use check_and_transfer tool to route to billing
+
+    For technical problems, errors, or configuration → use check_and_transfer tool to route to support
+
+    For general questions → provide direct assistance
+  
+
+    Always be helpful and explain what you're doing.""",
+
+    description="Main help desk router that intelligently directs customer inquiries.",
+
+    tools=[check_and_transfer],
+
+    sub_agents=[billing_agent, support_agent]
+
+)
+
+```
+
+**Comprendiendo la Arquitectura del Coordinador**
+
+Este patrón implementa un enrutamiento inteligente:
+
+  * El Coordinador analiza las solicitudes entrantes.
+  * La Herramienta de Transferencia determina el especialista apropiado.
+  * Los Agentes Especialistas manejan solicitudes específicas del dominio.
+  * El mecanismo `transfer_to_agent` entrega las conversaciones sin problemas.
+
+## H2 7. Patrón 5: Descomposición Jerárquica de Tareas
+
+Este patrón crea estructuras organizativas de múltiples niveles donde los agentes de nivel superior delegan en equipos especializados, que a su vez coordinan a sus propios sub-agentes.
+
+**Crea el Patrón Jerárquico**
+
+Crea `hierarchical_pattern/agent.py` con el siguiente código:
+
+``` python
+from google.adk.agents import Agent, SequentialAgent, ParallelAgent
+
+from dotenv import load_dotenv
+
+  
+
+# Load environment variables
+
+load_dotenv()
+
+  
+
+# Level 4: Technical Experts (Lowest level)
+
+circuit_designer = Agent(
+
+    name="CircuitDesigner",
+
+    model="gemini-2.5-flash",
+
+    description="Designs electrical circuits for construction projects.",
+
+    instruction="""You are a circuit design expert. Create detailed electrical circuit plans
+
+    including load calculations, safety considerations, and code compliance.""",
+
+    output_key="circuit_design"
+
+)
+
+  
+
+wiring_sizer = Agent(
+
+    name="WiringSizer",
+
+    model="gemini-2.5-flash",
+
+    description="Calculates appropriate wire sizes and specifications.",
+
+    instruction="""You are a wiring specification expert. Based on the circuit design: '{circuit_design}'
+
+    calculate appropriate wire gauges, conduit sizes, and material specifications.""",
+
+    output_key="wiring_specs"
+
+)
+
+  
+
+safety_inspector = LlmAgent(
+
+    name="SafetyInspector",
+
+    model="gemini-2.5-flash",
+
+    description="Reviews electrical plans for safety and code compliance.",
+
+    instruction="""You are a safety inspector. Review the circuit design: '{circuit_design}'
+
+    and wiring specs: '{wiring_specs}' for safety compliance and building code adherence.""",
+
+    output_key="safety_review"
+
+)
+
+  
+
+# Level 3: Component Specialists (Sequential team)
+
+wiring_specialist = SequentialAgent(
+
+    name="WiringTeam",
+
+    description="Handles all electrical wiring design and specification.",
+
+    sub_agents=[circuit_designer, wiring_sizer, safety_inspector]
+
+)
+
+  
+
+# Level 2: System Directors
+
+electrical_director = Agent(
+
+    name="ElectricalDirector",
+
+    model="gemini-2.5-flash",
+
+    description="Coordinates electrical systems installation and planning.",
+
+    instruction="""You are the electrical systems director. Coordinate electrical work
+
+    including power distribution, lighting, and safety systems. Delegate technical
+
+    details to your wiring team and ensure overall project integration.""",
+
+    sub_agents=[wiring_specialist]
+
+)
+
+  
+
+# Additional directors would be defined here (plumbing, HVAC, etc.)
+
+plumbing_director = Agent(
+
+    name="PlumbingDirector",
+
+    model="gemini-2.5-flash",
+
+    description="Coordinates plumbing systems installation.",
+
+    instruction="You are the plumbing systems director. Handle water supply, drainage, and fixtures."
+
+)
+
+  
+
+# Level 1: Project Manager (Highest level)
+
+root_agent = Agent(
+
+    name="ProjectManager",
+
+    model="gemini-2.5-flash",
+
+    description="Oversees entire construction project and delegates to system directors.",
+
+    instruction="""You are the project manager for a construction project.
+
+  
+
+    Coordinate between different system directors:
+
+    - Electrical systems (electrical_director)
+
+    - Plumbing systems (plumbing_director)
+
+  
+
+    Ensure all systems work together and meet project requirements.
+
+    Delegate technical work to appropriate directors.""",
+
+    sub_agents=[electrical_director, plumbing_director]
+
+)
+
+```
+
+**Comprendiendo la Estructura Jerárquica**
+
+Este patrón crea una organización de múltiples niveles:
+
+  * Nivel 1: Gerente de Proyecto (supervisión estratégica).
+  * Nivel 2: Directores de Sistema (coordinación de dominio).
+  * Nivel 3: Equipos Especialistas (ejecución táctica).
+  * Nivel 4: Expertos Técnicos (detalles de implementación).
+
+Cada nivel tiene un alcance apropiado y delega los detalles a los subordinados.
+
+## H2 8. Patrón 6: Humano en el Bucle (Human-in-the-Loop) para Control de Calidad
+
+Este patrón integra la toma de decisiones y la supervisión humana en flujos de trabajo automatizados, perfecto para la creación de contenido, procesos de aprobación y garantía de calidad.
+
+### **Crea el Patrón Humano en el Bucle**
+
+Crea `human_loop_pattern/agent.py` con el siguiente código:
+
+``` python
+from google.adk.agents import SequentialAgent, LlmAgent
+
+from google.adk.tools.tool_context import ToolContext
+
+from dotenv import load_dotenv
+
+  
+
+# Load environment variables
+
+load_dotenv()
+
+  
+
+# Step 1: Define the Agents
+
+  
+
+# The author agent - writes first draft
+
+author = LlmAgent(
+
+    name="ManuscriptWriter",
+
+    model="gemini-2.0-flash",
+
+    description="Creates initial content drafts for review.",
+
+    instruction="""You are a creative author. Write engaging, well-structured content
+
+    based on the given requirements. Focus on clarity, creativity, and audience engagement.
+
+    Your draft will be reviewed by human editors.""",
+
+    output_key="draft_chapter"  # Saves output to session state
+
+)
+
+  
+
+# The revision agent - improves based on human feedback
+
+reviser = LlmAgent(
+
+    name="ManuscriptReviser",
+
+    model="gemini-2.0-flash",
+
+    description="Revises content based on human feedback.",
+
+    instruction="""You are a meticulous editor. Revise the following draft: '{draft_chapter}'
+
+    based on this feedback: '{review_feedback}'
+
+  
+
+    Apply all suggested improvements while maintaining the original intent and voice.
+
+    Make the content more engaging, accurate, and polished.""",
+
+    output_key="revised_chapter"  # Saves final version to state
+
+)
+
+  
+
+# Step 2: Define the Human-in-the-Loop Tool
+
+  
+
+def request_human_review(draft: str, tool_context: ToolContext) -> str:
+
+    """
+
+    Pauses the workflow and requests human editor review.
+
+    In production, this would integrate with approval systems or APIs.
+
+  
+
+    Args:
+
+        draft: The content draft to be reviewed
+
+        tool_context: ADK tool context for state management
+
+  
+
+    Returns:
+
+        Human feedback as a string
+
+    """
+
+    print("\n" + "="*50)
+
+    print("🔄 HUMAN REVIEW REQUIRED")
+
+    print("="*50)
+
+    print(f"📄 Draft to review:\n{draft[:300]}...")
+
+    print("\n" + "-"*50)
+
+  
+
+    # In production, this would:
+
+    # 1. Save the state to a database
+
+    # 2. Send notification to human reviewer
+
+    # 3. Wait for API callback with feedback
+
+    # 4. Resume the workflow
+
+  
+
+    feedback = input("\n✏️  Please provide your editorial feedback: ")
+
+  
+
+    print("✅ Review completed. Continuing workflow...\n")
+
+    return feedback
+
+  
+
+# Step 3: Create Review Management Agent
+
+  
+
+# This agent manages the human review process
+
+reviewer = LlmAgent(
+
+    name="EditorialReviewer",
+
+    model="gemini-2.0-flash",
+
+    description="Manages human review process for content quality assurance.",
+
+    instruction="""You are a project manager coordinating the editorial review process.
+
+  
+
+    Use the request_human_review tool to get feedback on the draft: '{draft_chapter}'
+
+  
+
+    Facilitate the review process and ensure feedback is collected properly.""",
+
+    tools=[request_human_review],
+
+    output_key="review_feedback"  # Saves human feedback to state
+
+)
+
+  
+
+# Step 4: Assemble the Complete Workflow
+
+  
+
+root_agent = SequentialAgent(
+
+    name="BookPublishingFlow",
+
+    description="Complete content creation workflow with human oversight.",
+
+    sub_agents=[
+
+        author,      # 1. AI writes initial draft
+
+        reviewer,    # 2. Human reviews and provides feedback
+
+        reviser      # 3. AI revises based on human feedback
+
+    ]
+
+)
+
+```
+
+### **Comprendiendo la Integración Humana**
+
+Este patrón demuestra la colaboración humano-IA:
+
+1.  El Agente de IA crea el contenido inicial.
+2.  La Revisión Humana proporciona retroalimentación experta y control de calidad.
+3.  La Revisión de IA aplica las percepciones humanas para la mejora.
+
+En sistemas de producción, la revisión humana se integraría con:
+
+  * Sistemas de flujo de trabajo de aprobación.
+  * Notificaciones de Slack/Teams.
+  * Interfaces de revisión basadas en web.
+  * Procesos de garantía de calidad.
+
+## **9. Probando tus Patrones Multi-Agente**
+
+### **Ejecuta Patrones Individuales**
+
+Para probar cada patrón, ejecutarás `adk web` desde el directorio principal y luego seleccionarás el agente de patrón específico en la interfaz web:
+
+\# Desde el directorio principal `adk-multiagent-lab`
+
+``` 
+adk web
+
+```
+
+Luego, en tu navegador en `http://127.0.0.1:8080`, verás un menú desplegable para seleccionar entre:
+
+  * `sequential_pattern.CodePipelineAgent`
+  * `parallel_pattern.ParallelWebResearchAgent`
+  * `loop_pattern.ContentRefinementSystem`
+  * `coordinator_pattern.HelpDeskCoordinator`
+  * `hierarchical_pattern.ProjectManager`
+  * `human_loop_pattern.BookPublishingFlow`
+
+IMPORTANTE: Prueba el agente Human-in-the-loop usando el comando `adk run <ruta_a_la_carpeta_padre>` en su lugar.
+
+### **Ejemplos de Prompts para Cada Patrón**
+
+Agente Secuencial:
+
+  * "Crea una función Python para calcular el factorial de un número"
+
+Agente Paralelo:
+
+  * "Investiga las tendencias de la inteligencia artificial"
+
+Agente de Bucle:
+
+  * "Escribe una breve explicación de la computación cuántica"
+
+Agente Coordinador:
+
+  * "Estoy teniendo problemas con mi estado de cuenta mensual"
+  * "El software sigue fallando cuando intento subir archivos"
+
+Agente Jerárquico:
+
+  * "Planifica los sistemas eléctricos para un nuevo edificio de oficinas"
+
+Agente Humano en el Bucle:
+
+  * "Escribe el capítulo inicial de una novela de ciencia ficción sobre exploración espacial"
+
+## **10. Mejores Prácticas para Sistemas Multi-Agente**
+
+### **Principios de Diseño**
+
+  * Responsabilidad Única: Cada agente debe tener un propósito claro.
+  * Comunicación Clara: Usa valores `output_key` descriptivos para compartir el estado.
+  * Manejo de Errores: Incluye mecanismos de respaldo para fallos del agente.
+  * Gestión de Recursos: Considera los costos computacionales de las operaciones paralelas.
+
+### **Gestión de Estado**
+
+  * Nomenclatura Consistente: Usa claves de estado descriptivas como `circuit_design` y no `output1`.
+  * Flujo de Estado: Diseña un flujo de datos claro entre agentes.
+  * Limpieza de Estado: Considera cuándo limpiar el estado intermedio.
+
+### **Optimización del Rendimiento**
+
+  * Paralelizar Siempre que sea Posible: Usa agentes paralelos para tareas independientes.
+  * Secuenciar Cuando sea Necesario: Usa agentes secuenciales para tareas dependientes.
+  * Gestión de Tiempos de Espera: Establece tiempos de espera apropiados para agentes de larga ejecución.
+  * Agrupación de Recursos: Comparte recursos costosos (como herramientas de búsqueda) entre agentes.
+
+## **11. ¡Felicidades\!**
+
+¡Has dominado con éxito los patrones multi-agente fundamentales en ADK\!
