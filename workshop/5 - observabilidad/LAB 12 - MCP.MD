@@ -2,7 +2,7 @@
 
 En este lab, vamos a ver como ampliar las capacidades de los
  agentes de Google ADK conectándolos a herramientas y servicios externos mediante el Protocolo de Contexto de Modelo (MCP). El MCP actúa como un adaptador universal, permitiendo que su agente se comunique con una amplia gama de herramientas preconstruidas sin necesidad de escribir código de integración personalizado para cada una.
-Construiremos dos capacidades de agente distintas: una que interactúa con su sistema de archivos local y otra que utiliza Google Maps para proporcionar direcciones.
+Construiremos un  agente que interactúa con su sistema de archivos local.
 
 
 ## H2 1. Configura tu entorno
