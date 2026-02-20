@@ -157,7 +157,7 @@ Ahora, dale un problema matemático:
 ¿Cuánto es 123 más 456?
 ¡Observa la Magia!
 
-En tu navegador, el orchestrator_agent responderá con la respuesta correcta: 579.
+En tu navegador, el agent responderá con la respuesta correcta: 579.
 
 Ahora, mira la Terminal 1 (el servidor uvicorn). Verás el mensaje de registro que añadimos: [math_agent] Executing add(123, 456).
 Esto confirma todo el flujo de trabajo:
