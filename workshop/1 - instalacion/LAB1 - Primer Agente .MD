@@ -42,18 +42,8 @@ Deberías ver una salida que indique el número de versión instalado.
 
 ** Consejo: ** Si no se encuentra el comando adk, verifica que tu entorno virtual esté activo. Deberías ver (.venv) en el indicador de tu terminal.
 
-## H2 2. Obtén tu clave de API de Gemini
 
-¡Tu agente necesita un cerebro! El ADK se conecta a Modelos de Lenguaje Extensos (LLMs) para potenciar el razonamiento y las capacidades conversacionales de tu agente. Para este laboratorio, usaremos un modelo Gemini, al cual puedes acceder de forma gratuita a través de una clave de API de Google AI Studio.
-
-Navega a Google AI Studio.
-
-Haz clic en "Create API key in new project". Se generará una nueva clave para ti.
-Copia la clave de API generada y guárdala en un lugar seguro para el siguiente paso. No podrás volver a verla.
-La clave de API gratuita de Gemini proporciona un límite de velocidad generoso adecuado para el desarrollo y el aprendizaje. Para aplicaciones de producción, normalmente usarías un proyecto de Google Cloud.
-
-
-## H2 3. Crea tu proyecto de agente
+## H2 2. Crea tu proyecto de agente
 
 Ahora la magia. Usaremos un solo comando de ADK para generar la estructura de un proyecto de agente completo basado en código.
 Desde tu directorio adk-workshop-python (con el entorno virtual aún activo), ejecuta el siguiente comando:
@@ -79,7 +69,7 @@ https://google.github.io/adk-docs/get-started/quickstart/#gemini---google-cloud-
 
 Elije proyecto y region:
 
-```Enter Google Cloud project ID [genai-demos-432617]: 
+```Enter Google Cloud project ID [xxxx-xxxx-xxxx]: 
 Enter Google Cloud region [us-central1]: 
 
 Agent created in /home/user/workshop-adk/solucion/adk-workshop-python/mi_primer_agente:
@@ -102,7 +92,7 @@ El ADK ha creado un nuevo directorio llamado mi_primer_agente. Examinemos la est
 
 Esta estructura limpia proporciona el punto de partida perfecto para construir un agente basado en Python.
 
-## H2 4. Configura tu agente
+## H2 3. Configura tu agente
 Con el proyecto creado, escribamos el código para nuestro agente y proporcionémosle la clave de su cerebro.
 Define el comportamiento del agente en Python
 Ahora, abre el archivo mi_primer_agente/main.py. Aquí es donde definirás programáticamente la personalidad y el propósito de tu agente.
