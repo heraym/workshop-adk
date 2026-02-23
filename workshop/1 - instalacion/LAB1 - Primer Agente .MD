@@ -97,9 +97,12 @@ Con el proyecto creado, escribamos el código para nuestro agente y proporcioné
 Define el comportamiento del agente en Python
 Ahora, abre el archivo mi_primer_agente/main.py. Aquí es donde definirás programáticamente la personalidad y el propósito de tu agente.
 Reemplaza el contenido del archivo con el siguiente código Python. Este código instancia un asistente servicial y creativo.
-from google.adk.agents import LlmAgent
 
-``` # El entorno de ejecución de ADK busca un objeto llamado root_agent en main.py para iniciar la aplicación.
+
+``` 
+from google.adk.agents import Agent
+
+# El entorno de ejecución de ADK busca un objeto llamado root_agent en main.py para iniciar la aplicación.
 root_agent = Agent(
     model='gemini-2.5-flash',
     name="assistant_agent",
@@ -116,6 +119,11 @@ When asked for creative tasks, like writing a poem or a joke, be imaginative!
 ## H2 5. Ejecuta e interactúa con tu agente
 
 ¡El momento de la verdad! El proceso para ejecutar un agente basado en código es idéntico a uno basado en configuración, lo que resalta la unificación de herramientas de ADK.
+
+Antes de ejecutarlo debes habilitar las APIs de Vertex
+(Busca en la consola Vertex AI Studio y habilita las apis)
+
+
 En tu terminal, navega hacia el directorio de tu agente recién creado.
 ` cd mi_primer_agente`
 
