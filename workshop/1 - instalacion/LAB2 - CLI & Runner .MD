@@ -90,7 +90,7 @@ if __name__ == "__main__":
 ```
 
 
-*** Ejecutar el Script ***
+**Ejecutar el Script**
 De vuelta en su terminal (en el directorio mi_primer_agente), ejecute su nuevo script de Python.
 
 `python run_programmatically.py`
