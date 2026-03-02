@@ -5,8 +5,7 @@ from vertexai import agent_engines
 
 # TODO: Paste the Resource Name from the deployment script output here
 
-AGENT_RESOURCE_NAME = "projects/224237244779/locations/us-central1/reasoningEngines/2686224554400940032"
-
+AGENT_RESOURCE_NAME = "projects/224237244779/locations/us-central1/reasoningEngines/3656583148331859968"
 async def main():
 
   """Connects to the deployed agent and sends a query."""

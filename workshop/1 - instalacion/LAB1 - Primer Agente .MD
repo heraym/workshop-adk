@@ -70,7 +70,9 @@ https://google.github.io/adk-docs/get-started/quickstart/#gemini---google-cloud-
 Elije proyecto y region:
 
 ```Enter Google Cloud project ID [xxxx-xxxx-xxxx]: 
+xxxx-xxxx-xxxx
 Enter Google Cloud region [us-central1]: 
+us-central1
 
 Agent created in /home/user/workshop-adk/solucion/adk-workshop-python/mi_primer_agente:
 - .env
@@ -83,10 +85,10 @@ El ADK ha creado un nuevo directorio llamado mi_primer_agente. Examinemos la est
 ** mi_primer_agente/
 ├── .env
 - __init__.py
-└── main.py
+└── agent.py
 **
 
-** main.py: ** Este es el punto de entrada para nuestro agente. Escribiremos nuestro código Python aquí para definir y configurar el agente.
+** agent.py: ** Este es el punto de entrada para nuestro agente. Escribiremos nuestro código Python aquí para definir y configurar el agente.
 ** .env: ** Este es un archivo especial para almacenar secretos, como nuestra clave de API.
 
 
@@ -95,7 +97,7 @@ Esta estructura limpia proporciona el punto de partida perfecto para construir u
 ## H2 3. Configura tu agente
 Con el proyecto creado, escribamos el código para nuestro agente y proporcionémosle la clave de su cerebro.
 Define el comportamiento del agente en Python
-Ahora, abre el archivo mi_primer_agente/main.py. Aquí es donde definirás programáticamente la personalidad y el propósito de tu agente.
+Ahora, abre el archivo mi_primer_agente/agent.py. Aquí es donde definirás programáticamente la personalidad y el propósito de tu agente.
 Reemplaza el contenido del archivo con el siguiente código Python. Este código instancia un asistente servicial y creativo.
 
 
@@ -124,8 +126,7 @@ Antes de ejecutarlo debes habilitar las APIs de Vertex
 (Busca en la consola Vertex AI Studio y habilita las apis)
 
 
-En tu terminal, navega hacia el directorio de tu agente recién creado.
-` cd mi_primer_agente`
+En tu terminal, navega hacia el directorio inicial desde donde creaste el agente (adk-workshop-python)
 
 Ejecuta la interfaz web integrada de ADK.
 ` adk web `
