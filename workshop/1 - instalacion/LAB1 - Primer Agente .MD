@@ -40,7 +40,7 @@ Verifica la instalación comprobando la versión de ADK.
 Deberías ver una salida que indique el número de versión instalado.
 
 
-*** Consejo: ***  Si no se encuentra el comando adk, verifica que tu entorno virtual esté activo. Deberías ver (.venv) en el indicador de tu terminal.
+**Consejo:**  Si no se encuentra el comando adk, verifica que tu entorno virtual esté activo. Deberías ver (.venv) en el indicador de tu terminal.
 
 
 ## H2 2. Crea tu proyecto de agente
@@ -89,8 +89,8 @@ mi_primer_agente/
 - __init__.py
 └── agent.py
 
-*** agent.py: *** Este es el punto de entrada para nuestro agente. Escribiremos nuestro código Python aquí para definir y configurar el agente.
-*** .env: *** Este es un archivo especial para almacenar secretos, como nuestra clave de API.
+**agent.py:** Este es el punto de entrada para nuestro agente. Escribiremos nuestro código Python aquí para definir y configurar el agente.
+**.env:** Este es un archivo especial para almacenar secretos, como nuestra clave de API.
 
 
 Esta estructura limpia proporciona el punto de partida perfecto para construir un agente basado en Python.
