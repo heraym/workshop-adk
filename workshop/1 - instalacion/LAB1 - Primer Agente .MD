@@ -52,7 +52,8 @@ Desde tu directorio adk-workshop-python (con el entorno virtual aún activo), ej
 
 Cuando solicita el modelo elijamos gemini-2.5-flash:
 
-```Choose a model for the root agent:
+```
+Choose a model for the root agent:
 1. gemini-2.5-flash
 2. Other models (fill later)
 Choose model (1, 2): 1 ```
