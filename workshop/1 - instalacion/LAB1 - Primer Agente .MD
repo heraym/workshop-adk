@@ -69,7 +69,8 @@ https://google.github.io/adk-docs/get-started/quickstart/#gemini---google-cloud-
 
 Elije proyecto y region:
 
-```Enter Google Cloud project ID [xxxx-xxxx-xxxx]: 
+```
+Enter Google Cloud project ID [xxxx-xxxx-xxxx]: 
 xxxx-xxxx-xxxx
 Enter Google Cloud region [us-central1]: 
 us-central1
