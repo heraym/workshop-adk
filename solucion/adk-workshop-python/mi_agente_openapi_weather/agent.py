@@ -11,7 +11,6 @@ from google.genai import types
 from google.adk.tools.openapi_tool.openapi_spec_parser.openapi_toolset import OpenAPIToolset
 
 from google.adk.tools.openapi_tool.auth.auth_helpers import token_to_scheme_credential
-from google.adk.tools.openapi_tool.openapi_spec_parser.openapi_toolset import OpenAPIToolset
 
 
 # --- Load Environment Variables ---

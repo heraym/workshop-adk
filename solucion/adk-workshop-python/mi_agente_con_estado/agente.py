@@ -59,7 +59,7 @@ async def create_session(session_id, state=None):
     return session
 
 user_profile = {
-    'user_name': 'Hernan Aymard',
+    'user_name': 'Juan Perez',
     'user_email': 'haymard@google.com',
     'user_city': 'Mar del Plata'
 }
