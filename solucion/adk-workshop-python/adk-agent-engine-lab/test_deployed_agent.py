@@ -5,7 +5,7 @@ from vertexai import agent_engines
 
 # TODO: Paste the Resource Name from the deployment script output here
 
-AGENT_RESOURCE_NAME = "projects/224237244779/locations/us-central1/reasoningEngines/6639995250360188928"
+AGENT_RESOURCE_NAME = "projects/224237244779/locations/us-central1/reasoningEngines/6995190282689970176"
 async def main():
 
   """Connects to the deployed agent and sends a query."""
@@ -22,7 +22,7 @@ async def main():
 
   # Send a query to the agent
 
-  prompt = "What's the weather like in New York?"
+  prompt = "What's the weather like in London?"
   print(f"\nSending prompt: '{prompt}'")
 
   print("\n--- Agent Response Stream ---")
