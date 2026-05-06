@@ -51,7 +51,11 @@ def deploy_agent():
      # Tell Agent Engine which libraries to install in the managed environment.
      requirements=["google-cloud-aiplatform[adk,agent_engines]"],
      display_name="My Weather Agent", 
-     extra_packages=["agents"]
+     extra_packages=["agents"],
+     env_vars= {
+            "GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY": "true",
+            "OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT": "true",
+        },
   )
 
   print("\n--- Deployment finished! ---")

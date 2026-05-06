@@ -73,7 +73,7 @@ from . import agent
 
 ## H2 3. Escribe el Script de Despliegue
 
-Esta es la parte central del laboratorio. Escribiremos un *script* de Python que utiliza el SDK de Vertex AI para empaquetar y desplegar nuestro agente en Agent Engine.
+Esta es la parte central del laboratorio. Podemos implementar en Agent Engine de distintas formas. Una es escribiendo un *script* de Python que utiliza el SDK de Vertex AI para empaquetar y desplegar nuestro agente en Agent Engine.
 
 Ve debajo de `adk-agent-engine-lab` y abre `deploy.py` y añade el siguiente código:
 
@@ -141,6 +141,8 @@ if __name__ == "__main__":
 
 ```
 
+Otra opcion es ejecutando el comando de ADK "adk deploy"
+
 ## H2 4. Ejecuta el Script de Despliegue
 
 Con tu agente y *script* de despliegue listos, ejecuta el despliegue desde tu terminal.
@@ -150,6 +152,22 @@ Con tu agente y *script* de despliegue listos, ejecuta el despliegue desde tu te
 Verás registros de salida a medida que el *script* inicializa el SDK, envuelve el agente y luego comienza el proceso de despliegue. El despliegue implica construir una imagen de contenedor, enviarla a un registro y aprovisionar el servicio en Agent Engine. Sé paciente, ya que esto puede tardar de 5 a 10 minutos.
 
 Una vez completado con éxito, el *script* imprimirá el Nombre de Recurso único para tu agente desplegado. Copia este valor, ya que lo necesitarás en el siguiente paso para probar el agente.
+
+Si prefieres usar directamente el comando adk ejecuta lo siguiente:
+
+```
+export GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY=TRUE
+export OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT=TRUE
+
+adk deploy agent_engine \
+        --project=$PROJECT_ID \
+        --region=$LOCATION_ID \
+        --trace_to_cloud \
+        --otel_to_cloud \
+        --display_name="My Weather Agent" \
+        mi_agente_matematico
+```
+El resultado deberia ser:
 
 `--- Deployment finished! ---`
 

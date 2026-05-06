@@ -51,12 +51,14 @@ def get_bigquery_mcp_toolset():
 # Crear la instancia del Toolset
 bigquery_toolset = get_bigquery_mcp_toolset()
 
+
+
 # Definir el Agente LLM
 if bigquery_toolset:
     root_agent = LlmAgent(
         model='gemini-2.5-flash', # O el modelo que prefieras
         name='bigquery_agent',
-        instruction="Eres un asistente de datos útil. Responde preguntas utilizando las herramientas de BigQuery proporcionadas para consultar la base de datos.",
+        instruction="Eres un asistente de datos útil. Responde preguntas utilizando las herramientas de BigQuery proporcionadas para consultar la base de datos. Usa el proyecto genai-demos-432617 y la tabla test",
         tools=[bigquery_toolset]
     )
     print("Agente ADK creado con éxito con herramientas de BigQuery.")
