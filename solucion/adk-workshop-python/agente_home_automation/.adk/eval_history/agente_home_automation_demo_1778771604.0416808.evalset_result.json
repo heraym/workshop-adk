@@ -1,0 +1,542 @@
+{
+  "eval_set_result_id": "agente_home_automation_demo_1778771604.0416808",
+  "eval_set_result_name": "agente_home_automation_demo_1778771604.0416808",
+  "eval_set_id": "demo",
+  "eval_case_results": [
+    {
+      "eval_set_file": "demo",
+      "eval_set_id": "demo",
+      "eval_id": "casef92252",
+      "final_eval_status": 2,
+      "eval_metric_results": null,
+      "overall_eval_metric_results": [
+        {
+          "metric_name": "tool_trajectory_avg_score",
+          "threshold": 1.0,
+          "criterion": null,
+          "custom_function_path": null,
+          "score": 0.0,
+          "eval_status": 2,
+          "details": {
+            "rubric_scores": null
+          }
+        },
+        {
+          "metric_name": "response_match_score",
+          "threshold": 0.7,
+          "criterion": null,
+          "custom_function_path": null,
+          "score": 0.3333333333333333,
+          "eval_status": 2,
+          "details": {
+            "rubric_scores": null
+          }
+        }
+      ],
+      "eval_metric_result_per_invocation": [
+        {
+          "actual_invocation": {
+            "invocation_id": "e-afb959d5-6364-420a-94bd-5eb9ff6d2028",
+            "user_content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "Prende la luz de la oficina",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "final_response": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "Para poder prender la luz, necesito que me digas el identificador o nombre de la luz que quieres encender en la oficina.",
+                  "thought": null,
+                  "thought_signature": "CowIAY89a1-8sp8wE82jxo4oFQgP90--Qo8qBzUlXQpZz9VDpJwSZeW8YNC_U7uLiWFDvGTdphJRu_6ulCEQT6qrzBdIMIs4n3MZSEKSERTPtVW7iEdx-E3itty8OpMqwE6DTsyxho3ILGVS93Q9QTZifpTTCGfHlVGKrqk5zX7nsPbfuosqWD15SVMeb9MZSlIduMjQC2ou-s16T0gtSTXTAAkeOquf4zMFPggIjVlzhLd06I43j_x8cqGz86dEvmpiu3cJjgzN2MlC4Q2vAaQTU-pyc7IkkEuy-xWrH9H0kLCiXm-dfZeilw8j53thQ0t99OE3yu1m0-BdpVB-Fu2HyFOPvDJ_sxxdX0eBqGPij0IzuMWGLfJSbilY5u7gYl0b4P82A_ajATe52NQdmFOM1pHRfveX1upg11Y2vEFwO5RoxuGqnlArDz1n9WYlRCQkYaa5SM6bRq1YZxl2N4HJXmuPZUJ8rPLL1u8FEkfEgz5-1HUIH7BfvE-3x7WAUrc2xye_b31NCM-otfyO-0N_TmU7c4H9Gm0Zqza51mvixD98wcOfb__Kc-nFJQH-8WHd8vbQNggZBZsg1mZNSBXY-dLmvXc3ivMhISo1ayFsbvDSHDIbnBXnTRnAVvKaGiwjAQhPSrDUxBnX62ovhDmmT8g51MavklJD9-vqcf5Tyu33M4AW3rlhqijLuwYpX_E0yD6s33xYsSCNpe2lva8A7EamQb8GzrWUThQqdBxX0tqfgsB6lQ6weuV0N_oRwYx41jTYESMwLAW8BQ0S4xkl5SfYS9Fdg_jEp8Z7X-6hk30k4x2P1uljlvlbOnzd_2pkHOHgawe046xGfsEtZWsWP92wtcuttZRyZN-PDt83dno2FdqRnW8_kJn-5FxoeX8fNBZYJ4GEwabq28UVAEtKmcqbD_qR7eU6XJdFcuB_4UziCs0yBgUTzAfQSSdomMbG3hQV2zaG_Wg3ckn3HcRasaqO459W-SXebvhziEs2Gzf0nwsxhvP4NSvCc8mQa0v-vSh6J2ScXFz5097bAkc6D_PR_6CaK4tpg8m3m4cZ0VNvGJrP-99ZKaR_yEkKfyZKKHjAGGeymPMpEeg2NayNd1PGh8DGzqp50w_SJaqL2cgYykNAlw9svthMUyjiFtnLIBZ7-bk1UwFILfcvl-Ho8I6HYJAqf0p9C-VVbg4O4hOU6X18POrDUty6jH5N83V5ynzf2bTyuIPQe7lUFRg7ZPdmo-JZ8wVWMO094HIwxESxRW2ZeyNMFXJREh2ftokVU_tv_wNp6y6gpops75G0wzimRuzOB8T3xQyVdJpYhrckR_y5u04BxSnA7CuWOsgKF23FUVgUXjkJ5M6V24aZeYDzDG3uSWZ8azihSw==",
+                  "video_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "intermediate_data": {
+              "invocation_events": []
+            },
+            "creation_timestamp": 1778771598.76198,
+            "rubrics": null,
+            "app_details": {
+              "agent_details": {
+                "home_automation_agent": {
+                  "name": "home_automation_agent",
+                  "instructions": "You are a home automation assistant. Use the available tools to fulfill user requests to control devices.\n\nYou are an agent. Your internal name is \"home_automation_agent\". The description about you is \"An agent to control smart devices in a home.\".",
+                  "tool_declarations": [
+                    {
+                      "retrieval": null,
+                      "computer_use": null,
+                      "file_search": null,
+                      "code_execution": null,
+                      "enterprise_web_search": null,
+                      "function_declarations": [
+                        {
+                          "description": "Sets the status of a smart home device.\n\n        Args:\n            location: The room where the device is located.\n            device_id: The unique identifier for the device.\n            status: The desired status, either 'ON' or 'OFF'.\n\n        Returns:\n            A dictionary confirming the action.\n        ",
+                          "name": "set_device_status",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "location": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              },
+                              "device_id": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              },
+                              "status": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "location",
+                              "device_id",
+                              "status"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        }
+                      ],
+                      "google_maps": null,
+                      "google_search": null,
+                      "google_search_retrieval": null,
+                      "url_context": null
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "expected_invocation": {
+            "invocation_id": "e-ac04e413-77bf-4030-8b3d-81a877a40499",
+            "user_content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "Prende la luz de la oficina",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "final_response": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "¡La luz de la oficina ha sido encendida!\n",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "intermediate_data": {
+              "invocation_events": [
+                {
+                  "author": "home_automation_agent",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": {
+                          "id": "adk-97d22e05-925d-4764-a225-404f69c9ac15",
+                          "args": {
+                            "device_id": "light",
+                            "location": "office",
+                            "status": "ON"
+                          },
+                          "name": "set_device_status",
+                          "partial_args": null,
+                          "will_continue": null
+                        },
+                        "function_response": null,
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": "CvAGAY89a1-amValnzrP10XTHi-8lMP4J19EtTY6bFMHfbjCiZd6pxEO0cvI265obY4iETH8cX8EJbDgjXiBADzcQLrvvXquvWq30F-CfvqwYqZ8qrfVJECnQ3oU9MsOhjyzB-pyMlSeU4HE2kpR_NE2eKogw-Hp3nv8aqZPzGxgWwwhOcTr56NTlCv3_BaUGP5c18KskOuoIXrRgPyYbpEV1YWkJvEkAh5XLHvrD3XvujuVNlICTDdLDBk4tCvrNUmyNPNb4lQ62vEiN8mHwD2uzRukX3EFlr1gke4fyIADpBMelPH5admP5QeeJ82OilSttm96GmesdU4HdL2Y2CLFCT10_eqHNa6nvXVEI8WPPMmXteHyrR-Jclz_VJX6CvFzx2fyxKUyxm3TxmFZJ_pSh8BAJ5RxGlUao1d0YBE0nniPTxrpdgdDEIkdCzewEtydS48fiMUWTxBj4DJo5KaU5mhGoeDNB2q-3MsGRitIfCJMrC1txKKjAHSD_9m1dgaeNMlq_aaBOcnH278HyTq4YWGiSLS3Qu_PimD_tizPKdxojLjcLUyiwyu-QDDf_L3wKZQY1Uu199zRwL4d0noF2qvNNL8yttIZeBvRRxnhkIJuE7ydtq3yCrH-JzRTkCsNmx1k5XSc5EZQIUDoeofZG5P5vAgZZ89FSFb1ixSAR6Guj6mStEpn4bsIJ-nuKkdWkqOVECoI3-4QGMaiau_4RGR_KfzM_kvPPt7kj56HSkKZ1-uSBRtoGS6s24I7pSfuLxYLowp1NK4zwX0neDr00qlVBT8wibkcq9LjDK0ZMFO3plgLJg-UVnMLkpcyzXfmrYO-OCQp69wuA-t-O6AA8rObhTgyR36oEEpkCBMvB8hwqKTJLmCn3VMaYCBsRMN5Z211y0So4_RMsLxmypaCZBUdqtY1YFMdljXvjkvnfnjCzSiE9z8r5R17U0aMMt3DvrkEIC3jw483OI-GQOBeij7DUX4YCfzyFnx3WDYVu1lHwpIptcmWIzi8YLm1f1BGYwdUF29HR5kdwuoDExaO5mRzDKB8Cni-R3KIfAvRtxp4zXV_J1d6cKK7CfQn4wT5l_eD0nbzdwDGDoKb33nt2aZO37_nI8XjSXY0fa8DBaAKPIWluBDX6W4uKQjIqeXEdCYz41fRFMCi-2q1K8g7Dw==",
+                        "video_metadata": null
+                      }
+                    ],
+                    "role": "model"
+                  }
+                },
+                {
+                  "author": "home_automation_agent",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": null,
+                        "function_response": {
+                          "will_continue": null,
+                          "scheduling": null,
+                          "parts": null,
+                          "id": "adk-97d22e05-925d-4764-a225-404f69c9ac15",
+                          "name": "set_device_status",
+                          "response": {
+                            "success": true,
+                            "message": "Successfully set the light in office to on."
+                          }
+                        },
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": null,
+                        "video_metadata": null
+                      }
+                    ],
+                    "role": "user"
+                  }
+                }
+              ]
+            },
+            "creation_timestamp": 1778161480.391416,
+            "rubrics": null,
+            "app_details": null
+          },
+          "eval_metric_results": [
+            {
+              "metric_name": "tool_trajectory_avg_score",
+              "threshold": 1.0,
+              "criterion": null,
+              "custom_function_path": null,
+              "score": 0.0,
+              "eval_status": 2,
+              "details": {
+                "rubric_scores": null
+              }
+            },
+            {
+              "metric_name": "response_match_score",
+              "threshold": 0.7,
+              "criterion": null,
+              "custom_function_path": null,
+              "score": 0.3333333333333333,
+              "eval_status": 2,
+              "details": {
+                "rubric_scores": null
+              }
+            }
+          ]
+        }
+      ],
+      "session_id": "___eval___session___47226f82-420a-4cf1-9fc7-625268281cd6",
+      "session_details": {
+        "id": "___eval___session___47226f82-420a-4cf1-9fc7-625268281cd6",
+        "app_name": "agente_home_automation",
+        "user_id": "user",
+        "state": {
+          "__llm_request_key__": "d64f3c25-1eea-44b8-8520-d055fcea3650"
+        },
+        "events": [
+          {
+            "model_version": null,
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "Prende la luz de la oficina",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-afb959d5-6364-420a-94bd-5eb9ff6d2028",
+            "author": "user",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {},
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "b244dc43-ae1b-41cc-a5b0-e6cbfedbe3a2",
+            "timestamp": 1778771594.122015
+          },
+          {
+            "model_version": "gemini-2.5-flash",
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "Para poder prender la luz, necesito que me digas el identificador o nombre de la luz que quieres encender en la oficina.",
+                  "thought": null,
+                  "thought_signature": "CowIAY89a1-8sp8wE82jxo4oFQgP90--Qo8qBzUlXQpZz9VDpJwSZeW8YNC_U7uLiWFDvGTdphJRu_6ulCEQT6qrzBdIMIs4n3MZSEKSERTPtVW7iEdx-E3itty8OpMqwE6DTsyxho3ILGVS93Q9QTZifpTTCGfHlVGKrqk5zX7nsPbfuosqWD15SVMeb9MZSlIduMjQC2ou-s16T0gtSTXTAAkeOquf4zMFPggIjVlzhLd06I43j_x8cqGz86dEvmpiu3cJjgzN2MlC4Q2vAaQTU-pyc7IkkEuy-xWrH9H0kLCiXm-dfZeilw8j53thQ0t99OE3yu1m0-BdpVB-Fu2HyFOPvDJ_sxxdX0eBqGPij0IzuMWGLfJSbilY5u7gYl0b4P82A_ajATe52NQdmFOM1pHRfveX1upg11Y2vEFwO5RoxuGqnlArDz1n9WYlRCQkYaa5SM6bRq1YZxl2N4HJXmuPZUJ8rPLL1u8FEkfEgz5-1HUIH7BfvE-3x7WAUrc2xye_b31NCM-otfyO-0N_TmU7c4H9Gm0Zqza51mvixD98wcOfb__Kc-nFJQH-8WHd8vbQNggZBZsg1mZNSBXY-dLmvXc3ivMhISo1ayFsbvDSHDIbnBXnTRnAVvKaGiwjAQhPSrDUxBnX62ovhDmmT8g51MavklJD9-vqcf5Tyu33M4AW3rlhqijLuwYpX_E0yD6s33xYsSCNpe2lva8A7EamQb8GzrWUThQqdBxX0tqfgsB6lQ6weuV0N_oRwYx41jTYESMwLAW8BQ0S4xkl5SfYS9Fdg_jEp8Z7X-6hk30k4x2P1uljlvlbOnzd_2pkHOHgawe046xGfsEtZWsWP92wtcuttZRyZN-PDt83dno2FdqRnW8_kJn-5FxoeX8fNBZYJ4GEwabq28UVAEtKmcqbD_qR7eU6XJdFcuB_4UziCs0yBgUTzAfQSSdomMbG3hQV2zaG_Wg3ckn3HcRasaqO459W-SXebvhziEs2Gzf0nwsxhvP4NSvCc8mQa0v-vSh6J2ScXFz5097bAkc6D_PR_6CaK4tpg8m3m4cZ0VNvGJrP-99ZKaR_yEkKfyZKKHjAGGeymPMpEeg2NayNd1PGh8DGzqp50w_SJaqL2cgYykNAlw9svthMUyjiFtnLIBZ7-bk1UwFILfcvl-Ho8I6HYJAqf0p9C-VVbg4O4hOU6X18POrDUty6jH5N83V5ynzf2bTyuIPQe7lUFRg7ZPdmo-JZ8wVWMO094HIwxESxRW2ZeyNMFXJREh2ftokVU_tv_wNp6y6gpops75G0wzimRuzOB8T3xQyVdJpYhrckR_y5u04BxSnA7CuWOsgKF23FUVgUXjkJ5M6V24aZeYDzDG3uSWZ8azihSw==",
+                  "video_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": "STOP",
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": {
+              "__llm_request_key__": "d64f3c25-1eea-44b8-8520-d055fcea3650"
+            },
+            "usage_metadata": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 28,
+              "candidates_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 28
+                }
+              ],
+              "prompt_token_count": 147,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 147
+                }
+              ],
+              "thoughts_token_count": 260,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 435,
+              "traffic_type": "ON_DEMAND"
+            },
+            "live_session_resumption_update": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": -2.131842613220215,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-afb959d5-6364-420a-94bd-5eb9ff6d2028",
+            "author": "home_automation_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "d64f3c25-1eea-44b8-8520-d055fcea3650"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "d05df63e-d6eb-4612-8bcf-f370ea3a5ddd",
+            "timestamp": 1778771594.137427
+          }
+        ],
+        "last_update_time": 1778771594.137427
+      },
+      "user_id": "user"
+    }
+  ],
+  "creation_timestamp": 1778771604.0416808
+}

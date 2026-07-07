@@ -1,0 +1,173 @@
+{
+  "eval_set_id": "demo",
+  "name": "demo",
+  "eval_cases": [
+    {
+      "eval_id": "casef92252",
+      "conversation": [
+        {
+          "invocation_id": "e-ac04e413-77bf-4030-8b3d-81a877a40499",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Prende la luz de la oficina"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "¡La luz de la oficina ha sido encendida!\n"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "home_automation_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-97d22e05-925d-4764-a225-404f69c9ac15",
+                        "args": {
+                          "device_id": "light",
+                          "location": "office",
+                          "status": "ON"
+                        },
+                        "name": "set_device_status"
+                      },
+                      "thought_signature": "CvAGAY89a1-amValnzrP10XTHi-8lMP4J19EtTY6bFMHfbjCiZd6pxEO0cvI265obY4iETH8cX8EJbDgjXiBADzcQLrvvXquvWq30F-CfvqwYqZ8qrfVJECnQ3oU9MsOhjyzB-pyMlSeU4HE2kpR_NE2eKogw-Hp3nv8aqZPzGxgWwwhOcTr56NTlCv3_BaUGP5c18KskOuoIXrRgPyYbpEV1YWkJvEkAh5XLHvrD3XvujuVNlICTDdLDBk4tCvrNUmyNPNb4lQ62vEiN8mHwD2uzRukX3EFlr1gke4fyIADpBMelPH5admP5QeeJ82OilSttm96GmesdU4HdL2Y2CLFCT10_eqHNa6nvXVEI8WPPMmXteHyrR-Jclz_VJX6CvFzx2fyxKUyxm3TxmFZJ_pSh8BAJ5RxGlUao1d0YBE0nniPTxrpdgdDEIkdCzewEtydS48fiMUWTxBj4DJo5KaU5mhGoeDNB2q-3MsGRitIfCJMrC1txKKjAHSD_9m1dgaeNMlq_aaBOcnH278HyTq4YWGiSLS3Qu_PimD_tizPKdxojLjcLUyiwyu-QDDf_L3wKZQY1Uu199zRwL4d0noF2qvNNL8yttIZeBvRRxnhkIJuE7ydtq3yCrH-JzRTkCsNmx1k5XSc5EZQIUDoeofZG5P5vAgZZ89FSFb1ixSAR6Guj6mStEpn4bsIJ-nuKkdWkqOVECoI3-4QGMaiau_4RGR_KfzM_kvPPt7kj56HSkKZ1-uSBRtoGS6s24I7pSfuLxYLowp1NK4zwX0neDr00qlVBT8wibkcq9LjDK0ZMFO3plgLJg-UVnMLkpcyzXfmrYO-OCQp69wuA-t-O6AA8rObhTgyR36oEEpkCBMvB8hwqKTJLmCn3VMaYCBsRMN5Z211y0So4_RMsLxmypaCZBUdqtY1YFMdljXvjkvnfnjCzSiE9z8r5R17U0aMMt3DvrkEIC3jw483OI-GQOBeij7DUX4YCfzyFnx3WDYVu1lHwpIptcmWIzi8YLm1f1BGYwdUF29HR5kdwuoDExaO5mRzDKB8Cni-R3KIfAvRtxp4zXV_J1d6cKK7CfQn4wT5l_eD0nbzdwDGDoKb33nt2aZO37_nI8XjSXY0fa8DBaAKPIWluBDX6W4uKQjIqeXEdCYz41fRFMCi-2q1K8g7Dw=="
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "home_automation_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-97d22e05-925d-4764-a225-404f69c9ac15",
+                        "name": "set_device_status",
+                        "response": {
+                          "success": true,
+                          "message": "Successfully set the light in office to on."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1778161480.391416
+        }
+      ],
+      "session_input": {
+        "app_name": "agente_home_automation",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1778161538.5674908
+    },
+    {
+      "eval_id": "demo",
+      "conversation": [
+        {
+          "invocation_id": "e-6b5d6fab-78aa-47dc-8bf3-35ce4ea8179b",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Hola"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Hola, ¿en qué puedo ayudarte?",
+                "thought_signature": "CoQCAY89a19bGnx8Q5nKs0aAhEAJDgQAlZM3WPFVWbgvtJy-8HsNTRi_XbKBUHQ2CpGjpIlmU_iamjrBJjZnLgH6QNw7aP2QrLZrziHTLlr_ClBKjH6X52-vRQqyL6DjUWJVev-aL52Zp6OHcLquvk4zL7myYgBdW5fNDRY_uzQj69kd6qEZe6OCSzftKgIE1dQIdiY89KbRoePzZnGdOpZZGn6-fcXjj__IxESyGb7dPsHS-WICXc1ZYuMzOrWk4xVafjTZv7Ot6OOlg47-5rMtRU3xbJkxzYIVvUllm_Kqp3RZxrwizb1zKZ1B7gckrjPTfrVXlhyJadO5BB_WlGwqZ_7L_jw="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1778771478.804066
+        },
+        {
+          "invocation_id": "e-b4c0f0f2-c735-49a6-843e-216d958784fe",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Prendeme la luz de la cocina"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "La luz de la cocina ha sido encendida."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "home_automation_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-b2637a81-248d-4262-8785-9ed2835f06a3",
+                        "args": {
+                          "status": "ON",
+                          "location": "cocina",
+                          "device_id": "luz"
+                        },
+                        "name": "set_device_status"
+                      },
+                      "thought_signature": "CtUDAY89a1_9EHFdpZb-2dI1uYuov3t_IAjMkaoSYCZonh-sGxuPPTT0EGxte6VVlw6vqtSD2yzwWL_hYtAIIp65QJcCcSn98nSodNXUyvTeVCBnEr02GlIk3CSzBVdejwalEtenpatshXsvWWL935MrpGPduJ_1XUgQ_DMIYGyj1gtHMjuxjg0RE4lxQFvhLYEZ0YYRrgtm44LLx1X7829MmSDMNpycgvaddk8zb55EmN3TeAO2Laki_vhU5ZRr-y5AwyZehEFVtauzxm6VXJIt9-82dwI8LMVo2KcpTS4LllAKiapXOg2sold5BnEqAw3KiHlmYxAYXekezyvHXhWarRBLx9VXJ2HAq2Vec2L97wmy7sIYSjgFKOKN8ppmE4HgL7XqNd1FG7Q9z2xSspZspSVfNuGpgLFBX32_Uh6ECq6ajgktEoepdD4SqJG4HTW44vJKWtKpy5vw0YDAGGaMo7-CFigFQaJiwR7kNHs7aYgVX9SAZh4re-9f42eMS0-4ND-7_AUumBGId63tDxXO2RbTAL0peY2CjFgz3sVdtIv3LYusKo03WjBH_lo_OB3JrWPPtWiik1VrLkW8awqkxaqpQX3NoJ-Ou2BKf5G0CixJ3Jd5TA=="
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "home_automation_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-b2637a81-248d-4262-8785-9ed2835f06a3",
+                        "name": "set_device_status",
+                        "response": {
+                          "success": true,
+                          "message": "Successfully set the luz in cocina to on."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1778771490.306526
+        }
+      ],
+      "session_input": {
+        "app_name": "agente_home_automation",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1778771507.5343769
+    }
+  ],
+  "creation_timestamp": 1778161508.4173737
+}

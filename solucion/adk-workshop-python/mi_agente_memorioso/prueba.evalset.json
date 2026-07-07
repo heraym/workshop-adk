@@ -1,0 +1,38 @@
+{
+  "eval_set_id": "prueba",
+  "name": "prueba",
+  "eval_cases": [
+    {
+      "eval_id": "case2bdd07",
+      "conversation": [
+        {
+          "invocation_id": "e-18d4070f-baa6-4a07-83fc-efeb929a394e",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Quien fue San Martin?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Ya te lo dije! No me hagas perder tiempo"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1781190304.224765
+        }
+      ],
+      "session_input": {
+        "app_name": "mi_agente_memorioso",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1781192345.810078
+    }
+  ],
+  "creation_timestamp": 1781192340.9428313
+}

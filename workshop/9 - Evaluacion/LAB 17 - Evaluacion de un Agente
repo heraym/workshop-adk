@@ -1,0 +1,109 @@
+## H1: Evaluando Agentes con ADK (Work in progress)
+
+En este lab, vamos a ver como implementar un workflow de evaluacion para los agentes usando los metodos que provee el ADK.
+ 
+ 
+## H2: 1. Crear el agente para el lab
+
+Vamos a usar un agente simple de "Automatizacion de una casa" que puede controlar dispositivos inteligentes.
+
+1.  Creamos los directorios del proyecto del agente
+
+    ```    
+    mkdir -p agente_home_automation/tests/integration
+    cd agente_home_automation
+    ```
+
+2. Creamos el archivo  `agent.py`. Este agente tiene una tool muy simple para cambiar el estado de un dispositivo.
+ 
+    ```
+    # agente_home_automation/agent.py
+
+    from google.adk.agents import LlmAgent
+
+    def set_device_status(location: str, device_id: str, status: str) -> dict:
+        """Sets the status of a smart home device.
+
+        Args:
+            location: The room where the device is located.
+            device_id: The unique identifier for the device.
+            status: The desired status, either 'ON' or 'OFF'.
+
+        Returns:
+            A dictionary confirming the action.
+        """
+        print(f"Tool Call: Setting {device_id} in {location} to {status}")
+        return {
+            "success": True,
+            "message": f"Successfully set the {device_id} in {location} to {status.lower()}."
+        }
+
+    root_agent = LlmAgent(
+        model="gemini-2.5-flash",
+        name="home_automation_agent",
+        description="An agent to control smart devices in a home.",
+        instruction="You are a home automation assistant. Use the available tools to fulfill user requests to control devices.",
+        tools=[set_device_status],
+    )
+    ```
+
+3.  Creamos el inicializador del package `__init__.py`.
+
+    ```
+    # agente_home_automation/__init__.py
+    from . import agent
+    ```
+
+4.  Creamos el archivo .env:
+    ```
+    GOOGLE_GENAI_USE_VERTEXAI=1
+    GOOGLE_CLOUD_PROJECT=<project_id>
+    GOOGLE_CLOUD_LOCATION=<location>
+    ```
+
+ 
+
+## H2: 2. Metodo 1: Evaluacion Interactiva usando Web UI 
+
+
+### **1. Iniciar la Web UI**
+
+Desde el directorio `agente_home_automation`, ejecutar:
+
+```
+cd ..
+adk web . -v
+```
+
+El flag `-v` habilita el verbose logging, que es util para ver que pasa por debajo. 
+
+### **2. Crear y grabar y caso de Prueba**
+
+Primero, tengamos una conversacion con el agente para generar la base del test.
+
+1.  En la interfaz de chat escribir `Prende la lampara del escritorio en la oficina.`
+2.  El agente debe responder algo como: `Perfecto, la lámpara del escritorio en la oficina ha sido encendida.`
+3.  Navega al tab  **Eval** en el panel de la izquierda.
+4.  Hacer click en **Crear un nuevo eval set** y llamalo `ui_tests`.
+5.  Hace click en **Agregar sesion actual**.  
+
+
+### **3. Ejecutar la evaluacion**
+
+Ahora podemos ejecutar un caso de prueba y ver si el agente replica lo anterior.
+
+1.  En el tab de Eval seleccionar el caso.
+2.  Hacer click en el boton **Ejecutar Evaluacion**.
+3.  Aparece el dialog de **Metricas de Evaluacion** . Podemos dejarlo por ahora con los valores default y hacer click en  **Start**.
+4.  Se ejecuta la evaluacion, y se deberia ver un resultado en verde de  **Pass**. 
+
+### **4. Analizar una Falla**
+
+Rompamos la prueba para ver como se ve un error.
+
+1.  En la lista de los casos, editar nuestros test case.
+2.  Donde dice "Final Response", cambiar por algo incorrecto como : `La oficina quedo a oscuras`
+3.  Graba los cambios y re-ejecuta la evaluacion
+4.  El resultado deberia quedar en rojo  **Fail**.  
+
+

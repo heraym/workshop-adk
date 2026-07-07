@@ -1,0 +1,79 @@
+{
+  "eval_set_id": "ui_tests",
+  "name": "ui_tests",
+  "eval_cases": [
+    {
+      "eval_id": "case8a5f1b",
+      "conversation": [
+        {
+          "invocation_id": "e-05373952-dab4-407a-97a8-bbdf3dbd67f1",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Prende la lampara del escritorio en la oficina."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Perfecto, la lámpara del escritorio en la oficina ha sido encendida."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "home_automation_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-216d2d03-629f-4096-833f-5f2ac4370ebd",
+                        "args": {
+                          "device_id": "lampara del escritorio",
+                          "status": "ON",
+                          "location": "oficina"
+                        },
+                        "name": "set_device_status"
+                      },
+                      "thought_signature": "CqQCAY89a18ZDooo4-t54wwT6t0lIPMuObxO4BynMnyld4bKCm6PdLWZIqO-8Ah8xhqzl1jzUTphepcpQ-kH1Y5-7ONk0SSRJbd0pR1wYHBSvoLB2yLjXGgdtY9i9Xt50RXTc13ijNJTWtXtHK3opIuIZEpdeFr5iy1sDt5CGqgSY_U9YxOYPS5AOFaIq6m1ti34X7EjoEginSwIahitxw5P_V_xRvw9kdqIDe5ZPt4M1J9sSD-JS-9bXw-x7G2Jt-dNOitOKj1twRtdkjXrx3bjOgGhzyLTsmyRAacpmptwrkZhO0j5qt8hQMiyZlW6o0S6oZlnzybOzSAsDcCKXLABRCrj2OVds22a3yz8XPekfnqc0eKSb3yXhS-eYNECtXrepmyoSA=="
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "home_automation_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-216d2d03-629f-4096-833f-5f2ac4370ebd",
+                        "name": "set_device_status",
+                        "response": {
+                          "success": true,
+                          "message": "Successfully set the lampara del escritorio in oficina to on."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1778092397.033224
+        }
+      ],
+      "session_input": {
+        "app_name": "agente_home_automation",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1778092435.447647
+    }
+  ],
+  "creation_timestamp": 1778092429.0968564
+}

@@ -1,0 +1,765 @@
+{
+  "eval_set_result_id": "agente_home_automation_ui_tests_1778161755.5105438",
+  "eval_set_result_name": "agente_home_automation_ui_tests_1778161755.5105438",
+  "eval_set_id": "ui_tests",
+  "eval_case_results": [
+    {
+      "eval_set_file": "ui_tests",
+      "eval_set_id": "ui_tests",
+      "eval_id": "case8a5f1b",
+      "final_eval_status": 1,
+      "eval_metric_results": null,
+      "overall_eval_metric_results": [
+        {
+          "metric_name": "tool_trajectory_avg_score",
+          "threshold": 1.0,
+          "criterion": null,
+          "custom_function_path": null,
+          "score": 1.0,
+          "eval_status": 1,
+          "details": {
+            "rubric_scores": null
+          }
+        },
+        {
+          "metric_name": "response_match_score",
+          "threshold": 0.7,
+          "criterion": null,
+          "custom_function_path": null,
+          "score": 1.0,
+          "eval_status": 1,
+          "details": {
+            "rubric_scores": null
+          }
+        }
+      ],
+      "eval_metric_result_per_invocation": [
+        {
+          "actual_invocation": {
+            "invocation_id": "e-a1482c53-ffb9-4e95-8747-b0d071f10c45",
+            "user_content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "Prende la lampara del escritorio en la oficina.",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "final_response": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "Perfecto, la lámpara del escritorio en la oficina ha sido encendida.",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "intermediate_data": {
+              "invocation_events": [
+                {
+                  "author": "home_automation_agent",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": {
+                          "id": "adk-38e48426-f723-4283-bbac-77ae67820f22",
+                          "args": {
+                            "device_id": "lampara del escritorio",
+                            "status": "ON",
+                            "location": "oficina"
+                          },
+                          "name": "set_device_status",
+                          "partial_args": null,
+                          "will_continue": null
+                        },
+                        "function_response": null,
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": "CoUEAY89a19i25hqjDvL9uCZJr8HeAChSRRpcUoqTQOorTgKXGF9qp4RNb61hD0Nb1yGp2X4zQktjOZ-f6uA9IGTDIbHVpTQBw_csrZvmgor08oWRW24vNGYUr3Gly6C6JVh19izrWbAvseKOO_0s2fRprJb-T_y6Mh93FCg2PC0XdJF6SSQeAY6UXU4dXyzh_Y5ya44TUN6qByV6v05TcRFvr8PEEUEHURySozXeViwIkhehEWuonPMQ5a8UV9JoQNKe5jkMHV1ee2ejHGf3oFuHh98CbskYhfho9kM1i27qlKSKDMKFC1SlIym1i_7aXmL4jjN6c05E4GVrZgcStolFMwMznwT9Dul2I-yS3JsGzcns3a2SIXHek_4xVukZ5GJPUM0wZmhWWHQrg3amsmAIjBGcNEwwaDj7DcGAQrLDJRzZJnFJdspC1yYWx9TtvUQDqLWg3efWWOFsFHmYXpAtm0MXUDzsLtOWuXNccKAsAJV3bYVwkYjRenYptpGh8wUKChfdzC6sj8UJzt5b7mujoPYnFj_91_vFnq3gw7Gd94OkViEYW4Uz6KIp_FFFjl-fzXl54JlslTMcmJ2Qnqh98fbr48ygbeb48WDaHR_72Dqd2jj47vKt2e_p8xQyP_6S6C6I7fZfDE26I-0IKm28RtmdgrqcJg03-l8OFs90j89aJiYag==",
+                        "video_metadata": null
+                      }
+                    ],
+                    "role": "model"
+                  }
+                },
+                {
+                  "author": "home_automation_agent",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": null,
+                        "function_response": {
+                          "will_continue": null,
+                          "scheduling": null,
+                          "parts": null,
+                          "id": "adk-38e48426-f723-4283-bbac-77ae67820f22",
+                          "name": "set_device_status",
+                          "response": {
+                            "success": true,
+                            "message": "Successfully set the lampara del escritorio in oficina to on."
+                          }
+                        },
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": null,
+                        "video_metadata": null
+                      }
+                    ],
+                    "role": "user"
+                  }
+                }
+              ]
+            },
+            "creation_timestamp": 1778161752.459813,
+            "rubrics": null,
+            "app_details": {
+              "agent_details": {
+                "home_automation_agent": {
+                  "name": "home_automation_agent",
+                  "instructions": "You are a home automation assistant. Use the available tools to fulfill user requests to control devices.\n\nYou are an agent. Your internal name is \"home_automation_agent\". The description about you is \"An agent to control smart devices in a home.\".",
+                  "tool_declarations": [
+                    {
+                      "retrieval": null,
+                      "computer_use": null,
+                      "file_search": null,
+                      "code_execution": null,
+                      "enterprise_web_search": null,
+                      "function_declarations": [
+                        {
+                          "description": "Sets the status of a smart home device.\n\n        Args:\n            location: The room where the device is located.\n            device_id: The unique identifier for the device.\n            status: The desired status, either 'ON' or 'OFF'.\n\n        Returns:\n            A dictionary confirming the action.\n        ",
+                          "name": "set_device_status",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "location": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              },
+                              "device_id": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              },
+                              "status": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "location",
+                              "device_id",
+                              "status"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        }
+                      ],
+                      "google_maps": null,
+                      "google_search": null,
+                      "google_search_retrieval": null,
+                      "url_context": null
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "expected_invocation": {
+            "invocation_id": "e-05373952-dab4-407a-97a8-bbdf3dbd67f1",
+            "user_content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "Prende la lampara del escritorio en la oficina.",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "final_response": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "Perfecto, la lámpara del escritorio en la oficina ha sido encendida.",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "intermediate_data": {
+              "invocation_events": [
+                {
+                  "author": "home_automation_agent",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": {
+                          "id": "adk-216d2d03-629f-4096-833f-5f2ac4370ebd",
+                          "args": {
+                            "device_id": "lampara del escritorio",
+                            "status": "ON",
+                            "location": "oficina"
+                          },
+                          "name": "set_device_status",
+                          "partial_args": null,
+                          "will_continue": null
+                        },
+                        "function_response": null,
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": "CqQCAY89a18ZDooo4-t54wwT6t0lIPMuObxO4BynMnyld4bKCm6PdLWZIqO-8Ah8xhqzl1jzUTphepcpQ-kH1Y5-7ONk0SSRJbd0pR1wYHBSvoLB2yLjXGgdtY9i9Xt50RXTc13ijNJTWtXtHK3opIuIZEpdeFr5iy1sDt5CGqgSY_U9YxOYPS5AOFaIq6m1ti34X7EjoEginSwIahitxw5P_V_xRvw9kdqIDe5ZPt4M1J9sSD-JS-9bXw-x7G2Jt-dNOitOKj1twRtdkjXrx3bjOgGhzyLTsmyRAacpmptwrkZhO0j5qt8hQMiyZlW6o0S6oZlnzybOzSAsDcCKXLABRCrj2OVds22a3yz8XPekfnqc0eKSb3yXhS-eYNECtXrepmyoSA==",
+                        "video_metadata": null
+                      }
+                    ],
+                    "role": "model"
+                  }
+                },
+                {
+                  "author": "home_automation_agent",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": null,
+                        "function_response": {
+                          "will_continue": null,
+                          "scheduling": null,
+                          "parts": null,
+                          "id": "adk-216d2d03-629f-4096-833f-5f2ac4370ebd",
+                          "name": "set_device_status",
+                          "response": {
+                            "success": true,
+                            "message": "Successfully set the lampara del escritorio in oficina to on."
+                          }
+                        },
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": null,
+                        "video_metadata": null
+                      }
+                    ],
+                    "role": "user"
+                  }
+                }
+              ]
+            },
+            "creation_timestamp": 1778092397.033224,
+            "rubrics": null,
+            "app_details": null
+          },
+          "eval_metric_results": [
+            {
+              "metric_name": "tool_trajectory_avg_score",
+              "threshold": 1.0,
+              "criterion": null,
+              "custom_function_path": null,
+              "score": 1.0,
+              "eval_status": 1,
+              "details": {
+                "rubric_scores": null
+              }
+            },
+            {
+              "metric_name": "response_match_score",
+              "threshold": 0.7,
+              "criterion": null,
+              "custom_function_path": null,
+              "score": 1.0,
+              "eval_status": 1,
+              "details": {
+                "rubric_scores": null
+              }
+            }
+          ]
+        }
+      ],
+      "session_id": "___eval___session___90c6b829-9f79-4334-81ba-ba747a92400b",
+      "session_details": {
+        "id": "___eval___session___90c6b829-9f79-4334-81ba-ba747a92400b",
+        "app_name": "agente_home_automation",
+        "user_id": "user",
+        "state": {
+          "__llm_request_key__": "d59c744e-819a-478e-ad02-e3827e991dc2"
+        },
+        "events": [
+          {
+            "model_version": null,
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "Prende la lampara del escritorio en la oficina.",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-a1482c53-ffb9-4e95-8747-b0d071f10c45",
+            "author": "user",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {},
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "4f9607d3-2c85-487d-b790-cd039b46ad69",
+            "timestamp": 1778161748.614594
+          },
+          {
+            "model_version": "gemini-2.5-flash",
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": {
+                    "id": "adk-38e48426-f723-4283-bbac-77ae67820f22",
+                    "args": {
+                      "device_id": "lampara del escritorio",
+                      "status": "ON",
+                      "location": "oficina"
+                    },
+                    "name": "set_device_status",
+                    "partial_args": null,
+                    "will_continue": null
+                  },
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": "CoUEAY89a19i25hqjDvL9uCZJr8HeAChSRRpcUoqTQOorTgKXGF9qp4RNb61hD0Nb1yGp2X4zQktjOZ-f6uA9IGTDIbHVpTQBw_csrZvmgor08oWRW24vNGYUr3Gly6C6JVh19izrWbAvseKOO_0s2fRprJb-T_y6Mh93FCg2PC0XdJF6SSQeAY6UXU4dXyzh_Y5ya44TUN6qByV6v05TcRFvr8PEEUEHURySozXeViwIkhehEWuonPMQ5a8UV9JoQNKe5jkMHV1ee2ejHGf3oFuHh98CbskYhfho9kM1i27qlKSKDMKFC1SlIym1i_7aXmL4jjN6c05E4GVrZgcStolFMwMznwT9Dul2I-yS3JsGzcns3a2SIXHek_4xVukZ5GJPUM0wZmhWWHQrg3amsmAIjBGcNEwwaDj7DcGAQrLDJRzZJnFJdspC1yYWx9TtvUQDqLWg3efWWOFsFHmYXpAtm0MXUDzsLtOWuXNccKAsAJV3bYVwkYjRenYptpGh8wUKChfdzC6sj8UJzt5b7mujoPYnFj_91_vFnq3gw7Gd94OkViEYW4Uz6KIp_FFFjl-fzXl54JlslTMcmJ2Qnqh98fbr48ygbeb48WDaHR_72Dqd2jj47vKt2e_p8xQyP_6S6C6I7fZfDE26I-0IKm28RtmdgrqcJg03-l8OFs90j89aJiYag==",
+                  "video_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": "STOP",
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": {
+              "__llm_request_key__": "b4e6db79-c343-4e84-9111-b236422886e5"
+            },
+            "usage_metadata": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 17,
+              "candidates_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 17
+                }
+              ],
+              "prompt_token_count": 151,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 151
+                }
+              ],
+              "thoughts_token_count": 137,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 305,
+              "traffic_type": "ON_DEMAND"
+            },
+            "live_session_resumption_update": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": -0.9803701288559857,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-a1482c53-ffb9-4e95-8747-b0d071f10c45",
+            "author": "home_automation_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "b4e6db79-c343-4e84-9111-b236422886e5"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null
+            },
+            "long_running_tool_ids": [],
+            "branch": null,
+            "id": "06e6737e-97ad-48dd-b929-ac3b48a2d3c7",
+            "timestamp": 1778161748.628248
+          },
+          {
+            "model_version": null,
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": {
+                    "will_continue": null,
+                    "scheduling": null,
+                    "parts": null,
+                    "id": "adk-38e48426-f723-4283-bbac-77ae67820f22",
+                    "name": "set_device_status",
+                    "response": {
+                      "success": true,
+                      "message": "Successfully set the lampara del escritorio in oficina to on."
+                    }
+                  },
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-a1482c53-ffb9-4e95-8747-b0d071f10c45",
+            "author": "home_automation_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {},
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "0d904c9d-8dbf-4042-8611-5a62c5ccfb07",
+            "timestamp": 1778161752.460523
+          },
+          {
+            "model_version": "gemini-2.5-flash",
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "Perfecto, la lámpara del escritorio en la oficina ha sido encendida.",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": "STOP",
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": {
+              "__llm_request_key__": "d59c744e-819a-478e-ad02-e3827e991dc2"
+            },
+            "usage_metadata": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 17,
+              "candidates_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 17
+                }
+              ],
+              "prompt_token_count": 325,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 325
+                }
+              ],
+              "thoughts_token_count": null,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 342,
+              "traffic_type": "ON_DEMAND"
+            },
+            "live_session_resumption_update": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": -0.19264491866616643,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-a1482c53-ffb9-4e95-8747-b0d071f10c45",
+            "author": "home_automation_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "d59c744e-819a-478e-ad02-e3827e991dc2"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "62167054-4c6d-4c88-b83c-69ac69de77f0",
+            "timestamp": 1778161752.478004
+          }
+        ],
+        "last_update_time": 1778161752.478004
+      },
+      "user_id": "user"
+    }
+  ],
+  "creation_timestamp": 1778161755.5105438
+}
