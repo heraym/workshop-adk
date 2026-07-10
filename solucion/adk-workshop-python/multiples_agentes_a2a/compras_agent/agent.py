@@ -1,55 +1,57 @@
-from google.adk.agents.llm_agent import Agent
+# agents/orchestrator_agent.py
+from google.adk.agents import LlmAgent
+from google.adk.agents.remote_a2a_agent import RemoteA2aAgent
+from google.adk.agents.remote_a2a_agent import AGENT_CARD_WELL_KNOWN_PATH
+from dotenv import load_dotenv
 
-from .info_agent.agent import info_agent
-from .order_agent.agent import order_agent
+from a2a.types import GetExtendedAgentCardRequest
+from a2a.server.context import ServerCallContext
 
+# Cargar variables de entorno desde el archivo .env
+load_dotenv()
 
-class GoogleCloudAuth(httpx.Auth):
-    """Auto-refreshing Google Cloud authentication for httpx.
-
-    Refreshes the access token before each request if expired,
-    so long-running agents never hit 401 errors.
-    """
-
-    def __init__(self):
-        self.credentials, _ = default(
-            scopes=["https://www.googleapis.com/auth/cloud-platform"]
-        )
-
-    def auth_flow(self, request):
-        # Refresh the token if it is expired or missing
-        if not self.credentials.valid:
-            self.credentials.refresh(AuthRequest())
-            
-        request.headers["Authorization"] = f"Bearer {self.credentials.token}"
-        yield request
-
-
-reservation_remote_agent = RemoteA2aAgent(
-    name="reservation_agent",
-    description="Handles restaurant table reservations — create, check, and cancel bookings. Delegate to this agent when the user wants to book a table, check a reservation, or cancel a reservation.",
-    agent_card=RESERVATION_AGENT_CARD_URL,
-    httpx_client=httpx.AsyncClient(auth=GoogleCloudAuth(), timeout=60),
-)
 # Configurar el Cliente del Agente Remoto
-# RemoteA2aAgent es el componente del lado del cliente que sabe cómo hablar con
-# un servidor A2A. Lo configuramos con la URL de nuestro math_agent.
-stock_agent = RemoteA2aAgent(
-    name="stock_agent",
-    description="Un agente que valida el stock de los productos.",
-    agent_card=(
-        f"http://localhost:8001{AGENT_CARD_WELL_KNOWN_PATH}"
-    ),
+remote_a2a_agent_resource_name = "projects/224237244779/locations/us-central1/reasoningEngines/1335139718387466240"
+config = {"http_options": {"base_url": ENDPOINT}}
+
+PROJECT_ID = "genai-demos-432617"
+LOCATION = "us-central1"
+
+BUCKET_NAME = "agent-engine-workshop"
+BUCKET_URI = f"gs://{BUCKET_NAME}" 
+ENDPOINT = f"https://{LOCATION}-aiplatform.googleapis.com"
+
+# Initialize Agent Platform session
+vertexai.init(
+        project=PROJECT_ID,
+        location=LOCATION,
+        staging_bucket=BUCKET_URI,
+        api_endpoint=ENDPOINT,  # This directs requests to the {$ENV} endpoint
 )
 
-root_agent = Agent(
+# Initialize the Gen AI client using http_options
+# The parameter customizes how the Agent Platform client communicates with Google Cloud's backend services.
+# It's used here to access new, pre-release features.
+client = vertexai.Client(
+        project=PROJECT_ID,
+        location=LOCATION,
+        http_options=types.HttpOptions(api_version="v1beta1", base_url=f"{ENDPOINT}/"),
+)
+
+remote_info_agent = client.agent_engines.get(
+    name=remote_a2a_agent_resource_name,
+    config=config,
+)
+
+# Definir el Agente Orquestador
+root_agent = LlmAgent(
     model='gemini-2.5-flash',
-    name='root_agent',
+    name='orchestrator_agent',
     description='Un agente para vender productos.',
     instruction=f'''Sos un agente que vende productos. Tenes que determinar que producto quiere el cliente y en que cantidad.
-    Antes de confirmar la venta tenes que asegurarte si hay stock de ese producto con el agente "stock_agent". Si el stock es 0 o es menor a la cantidad que quiere comprar entonces debes informarle que no puede comprar porque no hay stock.
-    No debes confirmar la compra sin haber validado el stock.
-    Una vez confirmada la venta tenes que crear la orden con el agente "order_agent" e informarle al cliente el nro de orden de compra.
-    Si te pide el cliente informacion de un producto o el precio, se la podes brindar con el agente "info_agent".''',
-    sub_agents=[stock_agent, info_agent, order_agent]
+    Si te pide el cliente informacion de un producto o el precio, se la podes brindar con el agente "remote_info_agent".''',
+    # El agente remoto se trata igual que un sub-agente
+    sub_agents=[
+        remote_info_agent
+    ],
 )

@@ -3,7 +3,7 @@ import os
 
 import vertexai
 from google.genai import types
-from agent import root_agent, info_agent_card, InfoAgentExecutor
+from agent import root_agent, order_agent_card, OrderAgentExecutor
 from a2a.types import GetExtendedAgentCardRequest
 from a2a.server.context import ServerCallContext
 from a2a.types import SendMessageRequest, Message, Part
@@ -39,8 +39,8 @@ client = vertexai.Client(
     http_options=types.HttpOptions(api_version="v1beta1", base_url=f"{ENDPOINT}/"),
 )
 
-print(info_agent_card)
-a2a_agent = A2aAgent(agent_card=info_agent_card, agent_executor_builder=InfoAgentExecutor, extended_agent_card=info_agent_card)
+print(order_agent_card)
+a2a_agent = A2aAgent(agent_card=order_agent_card, agent_executor_builder=OrderAgentExecutor, extended_agent_card=order_agent_card)
 a2a_agent.set_up()
 
 
@@ -49,9 +49,9 @@ remote_a2a_agent = client.agent_engines.create(
     agent=a2a_agent,
     config={
         # Display name shown in the console
-        "display_name": "A2A - Info Agent",
+        "display_name": "A2A - Order Agent",
          # Description for documentation
-        "description": "Agente que provee info de productos",
+        "description": "Agente que crear ordenes de compra de productos",
         # Python dependencies needed in Agent Engine
         "requirements": [
             "a2a-sdk>=1.0.0",
