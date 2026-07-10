@@ -3,7 +3,12 @@ import os
 
 import vertexai
 from google.genai import types
-from agent import root_agent
+from agent import root_agent, info_agent_card, InfoAgentExecutor
+from a2a.types import GetExtendedAgentCardRequest
+from a2a.server.context import ServerCallContext
+from a2a.types import SendMessageRequest, Message, Part
+
+from vertexai.agent_engines.templates.a2a import A2aAgent, create_agent_card
 
 # fmt: off
 PROJECT_ID = "genai-demos-432617"
@@ -34,13 +39,18 @@ client = vertexai.Client(
     http_options=types.HttpOptions(api_version="v1beta1", base_url=f"{ENDPOINT}/"),
 )
 
+print(info_agent_card)
+a2a_agent = A2aAgent(agent_card=info_agent_card, agent_executor_builder=InfoAgentExecutor, extended_agent_card=info_agent_card)
+a2a_agent.set_up()
+
+
 remote_a2a_agent = client.agent_engines.create(
     # The actual agent to deploy
     agent=root_agent,
     config={
         # Display name shown in the console
         "display_name": "Info Agent",
-        # Description for documentation
+         # Description for documentation
         "description": "Agente que provee info de productos",
         # Python dependencies needed in Agent Engine
         "requirements": [
@@ -65,3 +75,6 @@ remote_a2a_agent = client.agent_engines.create(
         "max_instances": 1
     },
 )
+
+print("Implementado!")
+print(remote_a2a_agent.api_resource.name)
