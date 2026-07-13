@@ -3,10 +3,10 @@ import os
 
 import vertexai
 from google.genai import types
-from agent import root_agent, info_agent_card, InfoAgentExecutor
-from a2a.types import GetExtendedAgentCardRequest
+from agent import root_agent, my_agent_card, InfoAgentExecutor
 from a2a.server.context import ServerCallContext
 from a2a.types import SendMessageRequest, Message, Part
+from a2a.server.agent_execution import AgentExecutor, RequestContext
 
 from vertexai.agent_engines.templates.a2a import A2aAgent, create_agent_card
 
@@ -39,10 +39,8 @@ client = vertexai.Client(
     http_options=types.HttpOptions(api_version="v1beta1", base_url=f"{ENDPOINT}/"),
 )
 
-print(info_agent_card)
-a2a_agent = A2aAgent(agent_card=info_agent_card, agent_executor_builder=InfoAgentExecutor, extended_agent_card=info_agent_card)
+a2a_agent = A2aAgent(agent_card=my_agent_card, agent_executor_builder=InfoAgentExecutor, extended_agent_card=my_agent_card)
 a2a_agent.set_up()
-
 
 remote_a2a_agent = client.agent_engines.create(
     # The actual agent to deploy

@@ -40,7 +40,7 @@ client = vertexai.Client(
 )
 
 print(stock_agent_card)
-a2a_agent = A2aAgent(agent_card=stock_agent_card, agent_executor_builder=StockAgentExecutor, extended_agent_card=stock_agent_card)
+a2a_agent = A2aAgent(agent_card=stock_agent_card,  extended_agent_card=stock_agent_card, agent_executor_builder=StockAgentExecutor)
 a2a_agent.set_up()
 
 

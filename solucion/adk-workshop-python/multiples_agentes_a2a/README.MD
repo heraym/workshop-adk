@@ -1,6 +1,3 @@
- 
-
-
 export OTEL_SERVICE_NAME="Agente de Compras"
 export OTEL_PYTHON_LOGGING_AUTO_INSTRUMENTATION_ENABLED="true"
 export OTEL_SEMCONV_STABILITY_OPT_IN="gen_ai_latest_experimental"
