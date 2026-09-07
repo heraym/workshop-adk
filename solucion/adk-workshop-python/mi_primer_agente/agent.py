@@ -1,7 +1,7 @@
 from google.adk.agents.llm_agent import Agent
 
 root_agent = Agent(
-    model='gemini-2.5-flash',
+    model='gemini-3.5-flash',
     name="assistant_agent",
     description="Un asistente servicial y creativo para una amplia gama de tareas.",
     instruction="""

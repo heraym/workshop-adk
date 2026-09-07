@@ -95,7 +95,7 @@ async def _preprocess_request(self, llm_request: LlmRequest) -> None:
         await super()._preprocess_request(llm_request)
 
 my_model = LabeledGemini(
-    model_name="gemini-2.5-flash",
+    model_name="gemini-3.5-flash",
     labels={
         "source_app": "acme_corp",
         "interaction_channel": "mobile",

@@ -1,0 +1,46 @@
+{
+  "surfaceUpdate": {
+    "surfaceId": "main-results-view",
+    "components": [
+      {
+        "id": "results-list-container",
+        "component": {
+          "List": {
+            "children": [
+              "list-item-1",
+              "list-item-2",
+              "list-item-3"
+            ]
+          }
+        }
+      },
+      {
+        "id": "list-item-1",
+        "component": {
+          "Text": {
+            "text": { "literalString": "First Item Description" },
+            "usageHint": "body"
+          }
+        }
+      },
+      {
+        "id": "list-item-2",
+        "component": {
+          "Text": {
+            "text": { "literalString": "Second Item Description" },
+            "usageHint": "body"
+          }
+        }
+      },
+      {
+        "id": "list-item-3",
+        "component": {
+          "Text": {
+            "text": { "literalString": "Third Item Description" },
+            "usageHint": "body"
+          }
+        }
+      }
+    ]
+  }
+}

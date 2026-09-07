@@ -1,0 +1,20 @@
+{
+  "catalogId": "https://example.com/my_catalog.json",
+  "components": {
+    "MyWidget": {
+      "type": "object",
+      "allOf": [
+        { "$ref": "common_types.json#/$defs/ComponentCommon" },
+        {
+          "type": "object",
+          "properties": {
+            "component": { "const": "MyWidget" },
+            "title": { "$ref": "common_types.json#/$defs/DynamicString" }
+          },
+          "required": ["component", "title"]
+        }
+      ],
+      "unevaluatedProperties": false
+    }
+  }
+}
