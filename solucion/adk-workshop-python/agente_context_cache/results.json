@@ -1,0 +1,340 @@
+{
+  "experiment": "gemini-3.5-flash",
+  "description": "Google implicit caching vs ADK explicit caching",
+  "model": "gemini-3.5-flash",
+  "cached_results": {
+    "experiment_name": "Experiment gemini-3.5-flash - Explicit Caching",
+    "agent_name": "cache_analysis_gemini_3_5_flash_cached",
+    "total_requests": 10,
+    "successful_requests": 10,
+    "results": [
+      {
+        "prompt_number": 1,
+        "prompt": "Hello, what can you do for me?",
+        "response_length": 3672,
+        "success": true,
+        "error": null,
+        "token_usage": {
+          "prompt_token_count": 6177,
+          "candidates_token_count": 758,
+          "cached_content_token_count": 0,
+          "total_token_count": 7651
+        }
+      },
+      {
+        "prompt_number": 2,
+        "prompt": "What is artificial intelligence and how does it work in modern applications?",
+        "response_length": 9826,
+        "success": true,
+        "error": null,
+        "token_usage": {
+          "prompt_token_count": 7665,
+          "candidates_token_count": 2063,
+          "cached_content_token_count": 5671,
+          "total_token_count": 10938
+        }
+      },
+      {
+        "prompt_number": 3,
+        "prompt": "Explain the difference between machine learning and deep learning.",
+        "response_length": 9703,
+        "success": true,
+        "error": null,
+        "token_usage": {
+          "prompt_token_count": 10948,
+          "candidates_token_count": 1805,
+          "cached_content_token_count": 7731,
+          "total_token_count": 13489
+        }
+      },
+      {
+        "prompt_number": 4,
+        "prompt": "What are the main challenges in implementing AI systems at scale?",
+        "response_length": 7663,
+        "success": true,
+        "error": null,
+        "token_usage": {
+          "prompt_token_count": 13501,
+          "candidates_token_count": 1662,
+          "cached_content_token_count": 9758,
+          "total_token_count": 16104
+        }
+      },
+      {
+        "prompt_number": 5,
+        "prompt": "How do recommendation systems work in modern e-commerce platforms?",
+        "response_length": 8250,
+        "success": true,
+        "error": null,
+        "token_usage": {
+          "prompt_token_count": 16116,
+          "candidates_token_count": 1755,
+          "cached_content_token_count": 11790,
+          "total_token_count": 18665
+        }
+      },
+      {
+        "prompt_number": 6,
+        "prompt": "Use benchmark_performance with system_name='E-commerce Platform', metrics=['latency', 'throughput'], duration='standard', load_profile='realistic'.",
+        "response_length": 5693,
+        "success": true,
+        "error": null,
+        "token_usage": {
+          "prompt_token_count": 37715,
+          "candidates_token_count": 1395,
+          "cached_content_token_count": 33518,
+          "total_token_count": 40178
+        }
+      },
+      {
+        "prompt_number": 7,
+        "prompt": "Call analyze_data_patterns with data='premium customer engagement and conversion events for the last 30 days', analysis_type='trends'.",
+        "response_length": 6206,
+        "success": true,
+        "error": null,
+        "token_usage": {
+          "prompt_token_count": 42761,
+          "candidates_token_count": 1548,
+          "cached_content_token_count": 37508,
+          "total_token_count": 45280
+        }
+      },
+      {
+        "prompt_number": 8,
+        "prompt": "Run research_literature for topic='fintech user experience and security', sources=['industry', 'academic'], depth='comprehensive'.",
+        "response_length": 8154,
+        "success": true,
+        "error": null,
+        "token_usage": {
+          "prompt_token_count": 47976,
+          "candidates_token_count": 1682,
+          "cached_content_token_count": 43475,
+          "total_token_count": 50525
+        }
+      },
+      {
+        "prompt_number": 9,
+        "prompt": "Execute design_scalability_architecture with current_architecture='monolith', expected_growth={'user_growth_multiplier': '10x'}, scalability_requirements={'availability_target': '99.9%'}, technology_preferences=['kubernetes'].",
+        "response_length": 10058,
+        "success": true,
+        "error": null,
+        "token_usage": {
+          "prompt_token_count": 53415,
+          "candidates_token_count": 2399,
+          "cached_content_token_count": 49430,
+          "total_token_count": 56897
+        }
+      },
+      {
+        "prompt_number": 10,
+        "prompt": "Perform analyze_security_vulnerabilities on system_components=['web_frontend', 'api_endpoints'], security_scope='comprehensive', compliance_frameworks=['SOC2'].",
+        "response_length": 7307,
+        "success": true,
+        "error": null,
+        "token_usage": {
+          "prompt_token_count": 60482,
+          "candidates_token_count": 1813,
+          "cached_content_token_count": 55448,
+          "total_token_count": 63359
+        }
+      }
+    ],
+    "cache_statistics": {
+      "cache_hit_ratio_percent": 85.70306918815459,
+      "cache_utilization_ratio_percent": 90.0,
+      "total_prompt_tokens": 296756,
+      "total_cached_tokens": 254329,
+      "avg_cached_tokens_per_request": 25432.9,
+      "requests_with_cache_hits": 9
+    }
+  },
+  "uncached_results": {
+    "experiment_name": "Experiment gemini-3.5-flash - Implicit Caching",
+    "agent_name": "cache_analysis_gemini_3_5_flash_no_cache",
+    "total_requests": 10,
+    "successful_requests": 10,
+    "results": [
+      {
+        "prompt_number": 1,
+        "prompt": "Hello, what can you do for me?",
+        "response_length": 3703,
+        "success": true,
+        "error": null,
+        "token_usage": {
+          "prompt_token_count": 6179,
+          "candidates_token_count": 769,
+          "cached_content_token_count": 0,
+          "total_token_count": 7411
+        }
+      },
+      {
+        "prompt_number": 2,
+        "prompt": "What is artificial intelligence and how does it work in modern applications?",
+        "response_length": 8466,
+        "success": true,
+        "error": null,
+        "token_usage": {
+          "prompt_token_count": 15410,
+          "candidates_token_count": 1793,
+          "cached_content_token_count": 11296,
+          "total_token_count": 17981
+        }
+      },
+      {
+        "prompt_number": 3,
+        "prompt": "Explain the difference between machine learning and deep learning.",
+        "response_length": 6621,
+        "success": true,
+        "error": null,
+        "token_usage": {
+          "prompt_token_count": 10101,
+          "candidates_token_count": 1404,
+          "cached_content_token_count": 7641,
+          "total_token_count": 12250
+        }
+      },
+      {
+        "prompt_number": 4,
+        "prompt": "What are the main challenges in implementing AI systems at scale?",
+        "response_length": 7759,
+        "success": true,
+        "error": null,
+        "token_usage": {
+          "prompt_token_count": 25038,
+          "candidates_token_count": 1689,
+          "cached_content_token_count": 21206,
+          "total_token_count": 27441
+        }
+      },
+      {
+        "prompt_number": 5,
+        "prompt": "How do recommendation systems work in modern e-commerce platforms?",
+        "response_length": 8795,
+        "success": true,
+        "error": null,
+        "token_usage": {
+          "prompt_token_count": 30026,
+          "candidates_token_count": 1944,
+          "cached_content_token_count": 25169,
+          "total_token_count": 32761
+        }
+      },
+      {
+        "prompt_number": 6,
+        "prompt": "Use benchmark_performance with system_name='E-commerce Platform', metrics=['latency', 'throughput'], duration='standard', load_profile='realistic'.",
+        "response_length": 0,
+        "success": true,
+        "error": null,
+        "token_usage": {
+          "prompt_token_count": 35690,
+          "candidates_token_count": 1171,
+          "cached_content_token_count": 31106,
+          "total_token_count": 37731
+        }
+      },
+      {
+        "prompt_number": 7,
+        "prompt": "Call analyze_data_patterns with data='premium customer engagement and conversion events for the last 30 days', analysis_type='trends'.",
+        "response_length": 7968,
+        "success": true,
+        "error": null,
+        "token_usage": {
+          "prompt_token_count": 36418,
+          "candidates_token_count": 1837,
+          "cached_content_token_count": 34913,
+          "total_token_count": 39333
+        }
+      },
+      {
+        "prompt_number": 8,
+        "prompt": "Run research_literature for topic='fintech user experience and security', sources=['industry', 'academic'], depth='comprehensive'.",
+        "response_length": 8328,
+        "success": true,
+        "error": null,
+        "token_usage": {
+          "prompt_token_count": 42451,
+          "candidates_token_count": 1742,
+          "cached_content_token_count": 37013,
+          "total_token_count": 44871
+        }
+      },
+      {
+        "prompt_number": 9,
+        "prompt": "Execute design_scalability_architecture with current_architecture='monolith', expected_growth={'user_growth_multiplier': '10x'}, scalability_requirements={'availability_target': '99.9%'}, technology_preferences=['kubernetes'].",
+        "response_length": 9504,
+        "success": true,
+        "error": null,
+        "token_usage": {
+          "prompt_token_count": 47608,
+          "candidates_token_count": 2139,
+          "cached_content_token_count": 44889,
+          "total_token_count": 50643
+        }
+      },
+      {
+        "prompt_number": 10,
+        "prompt": "Perform analyze_security_vulnerabilities on system_components=['web_frontend', 'api_endpoints'], security_scope='comprehensive', compliance_frameworks=['SOC2'].",
+        "response_length": 0,
+        "success": true,
+        "error": null,
+        "token_usage": {
+          "prompt_token_count": 53806,
+          "candidates_token_count": 2127,
+          "cached_content_token_count": 48925,
+          "total_token_count": 56745
+        }
+      }
+    ],
+    "cache_statistics": {
+      "cache_hit_ratio_percent": 86.59881675569076,
+      "cache_utilization_ratio_percent": 90.0,
+      "total_prompt_tokens": 302727,
+      "total_cached_tokens": 262158,
+      "avg_cached_tokens_per_request": 26215.8,
+      "requests_with_cache_hits": 9
+    }
+  },
+  "cache_analysis": {
+    "cached_experiment": {
+      "cache_hit_ratio_percent": 85.70306918815459,
+      "cache_utilization_ratio_percent": 93.33333333333333,
+      "total_prompt_tokens": 296756,
+      "total_cached_tokens": 254329,
+      "avg_cached_tokens_per_request": 16955.266666666666,
+      "requests_with_cache_hits": 14,
+      "total_requests": 15
+    },
+    "uncached_experiment": {
+      "cache_hit_ratio_percent": 0.0,
+      "cache_utilization_ratio_percent": 0.0,
+      "total_prompt_tokens": 0,
+      "total_cached_tokens": 0,
+      "avg_cached_tokens_per_request": 0.0,
+      "requests_with_cache_hits": 0,
+      "total_requests": 0
+    }
+  },
+  "performance_analysis": {
+    "cached_analysis": {
+      "status": "active",
+      "requests_with_cache": 15,
+      "avg_invocations_used": 0,
+      "latest_cache": null,
+      "cache_refreshes": 0,
+      "total_invocations": 0,
+      "total_prompt_tokens": 296756,
+      "total_cached_tokens": 254329,
+      "cache_hit_ratio_percent": 85.70306918815459,
+      "cache_utilization_ratio_percent": 93.33333333333333,
+      "avg_cached_tokens_per_request": 16955.266666666666,
+      "total_requests": 15,
+      "requests_with_cache_hits": 14
+    },
+    "uncached_analysis": {
+      "status": "no_cache_data"
+    }
+  },
+  "end_time": "2026-09-07 20:12:18",
+  "total_duration": 493.49670577049255,
+  "repetitions": 1
+}
