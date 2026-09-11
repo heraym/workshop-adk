@@ -20,8 +20,7 @@ from google.adk import Event
 from pydantic import BaseModel
 from google.adk.apps import App
 from google.adk.models import Gemini
-from google.genai import types
-
+from google.genai import types 
 
 MODEL = "gemini-3.7-flash"
 
@@ -50,6 +49,7 @@ def response_2_support():
 def response_3_logistics():
     return Event(message="Handling logistics...")
 
+
 root_agent = Workflow(
    name="routing_workflow",
    edges=[
@@ -60,7 +60,7 @@ root_agent = Workflow(
                "CUSTOMER_SUPPORT": response_2_support,
                "LOGISTICS": response_3_logistics,
            }
-       )
+       ),
    ],
 )
 

@@ -8,7 +8,9 @@ curl \
     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
     -H "Content-Type: application/json" \
     https://us-central1-aiplatform.googleapis.com/v1/projects/224237244779/locations/us-central1/reasoningEngines/4280054070036660224:query \
-    -d '{"class_method": "async_create_session", "input": {"user_id": "u_123"},}'
+    -d '{"class_method": "async_create_session", "input": {"user_id": "u_123" , "state": { "source_app": "app1", "interaction_channel": "web", "correlation_id": "1"}  } }'
+
+ 
 
 curl \
     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
@@ -17,10 +19,8 @@ curl \
 "class_method": "async_stream_query",
 "input": {
     "user_id": "u_123",
-    "session_id": "5528684007392280576",
-    "message": "Hola como estas?",
-    
- "state_delta": { "source_app": "app1", "interaction_channel": "web", "correlation_id": "1"}   
+    "session_id": "7140599630311456768",
+    "message": "Hola como estas?  
 }
 }'
 
